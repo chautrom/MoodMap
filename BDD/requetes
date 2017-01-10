@@ -1,0 +1,39 @@
+
+-- -----------------------------------------------------
+-- Table `Insert data`.`user, impression, vote, `
+-- -----------------------------------------------------
+
+---
+--- User
+---
+insert into user VALUES(1,"elhafiani","elhafiani@ensicaen.fr","eeeeee");
+
+---
+--- Impression
+---
+insert into impression VALUES(1,"happy","./icons/happy.png");
+
+-- delete from impression where id = 2;
+insert into impression VALUES(2,"sad","./icons/sad.png");
+
+---
+--- vote
+---
+insert into vote VALUES(1, 1, 1, 1);
+insert into vote VALUES(2, 1, 2, 2);
+
+---
+--- Zone
+---
+insert into zone VALUES(1,"zone1", 20, 20, 30, 30);
+
+-- delete from zone where id = 2;
+insert into zone VALUES(2,"zone2", 40, 40, 45, 45);
+
+---
+--- dataZone
+---
+insert into datazone VALUES(1, 33.64, 1);
+insert into datazone VALUES(2, 62.4, 2);
+
+
