@@ -6,33 +6,25 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use AppBundle\Entity\User;
+use AppBundle\Entity\Criteria;
 
-class UserController extends Controller
+class CriteriaController extends Controller
 {
-	/**
-     * @Route("/createUser")
-     */
-    public function createUserAction()
-    {
-        $request = $this->get('request');
-		$request->getContent();
-    }
 
 	/**
-     * @Route("/getUsers")
+     * @Route("/getCriterias")
      */
-    public function getListeUsersAction()
+    public function getListeCriteriasAction()
     {
 		
-        $users = $this->getDoctrine()
-			->getRepository('AppBundle:User')
+        $sriterias = $this->getDoctrine()
+			->getRepository('AppBundle:Criteria')
 			->findAll();
 		
 		//echo print_r($users, true);
 		
 		$data = array();
-		foreach ($users as $item) {
+		/*foreach ($users as $item) {
 			$i = array(
 				'id' => $item->getId(),
 				'username' => $item->getUsername(),
@@ -41,7 +33,7 @@ class UserController extends Controller
 			);
 
 			array_push($data, $i);
-		}
+		}*/
 		
 		return new Response(json_encode($data));
     }

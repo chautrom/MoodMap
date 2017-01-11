@@ -6,3 +6,19 @@ create_user:
 get_liste_users:
     path:     /getListeUsers
     defaults: { _controller: AppBundle:UserController:getListeUsers }
+	
+get_liste_users:
+    path:     /getListeCriterias
+    defaults: { _controller: AppBundle:CriteriaController:getListeCriterias }
+	
+get_liste_users:
+    path:     /getListeDatazones
+    defaults: { _controller: AppBundle:DatazoneController:getListeDatazones }
+	
+get_liste_users:
+    path:     /getListeVotes
+    defaults: { _controller: AppBundle:VoteController:getListeVotes }
+	
+get_liste_users:
+    path:     /getListeZones
+    defaults: { _controller: AppBundle:Zone:getListeZones }
