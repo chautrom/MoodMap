@@ -15,10 +15,12 @@
     <string name="action_sign_in">Créer un compte</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">e-mail invalide</string>
+    <string name="error_invalid_identifiant">Identifiant invalide</string>
     <string name="error_invalid_password">Mot de passe trop court (min 5 caractères)</string>
     <string name="error_incorrect_password">Mot de passe incorrecte</string>
     <string name="error_incorrect_second_password">Ne correspond pas au mot de passe saisi</string>
     <string name="error_field_required">Champ obligatoire</string>
+    <string name="url">http://192.168.12.25:8000</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>

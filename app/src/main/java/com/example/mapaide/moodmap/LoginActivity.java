@@ -3,22 +3,20 @@ package com.example.mapaide.moodmap;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -32,16 +30,33 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.auth.api.Auth;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -72,9 +87,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private EditText mSecondPasswordView;
+    private AutoCompleteTextView mIdentifiant;
     private View mProgressView;
     private View mLoginFormView;
     private GoogleApiClient mGoogleApiClient;
+    private  Compte compte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +121,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
+        mIdentifiant =(AutoCompleteTextView) findViewById(R.id.id);
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
@@ -127,7 +145,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-  
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -213,6 +231,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
         String secondpassword = mSecondPasswordView.getText().toString();
+        String identifiant = mIdentifiant.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -241,6 +260,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             focusView = mEmailView;
             cancel = true;
         }
+        if (TextUtils.isEmpty(identifiant)) {
+            mIdentifiant.setError(getString(R.string.error_field_required));
+            focusView = mIdentifiant;
+            cancel = true;
+        } else if (!isIdentifiantValid(identifiant)) {
+            mIdentifiant.setError(getString(R.string.error_invalid_identifiant));
+            focusView = mIdentifiant;
+            cancel = true;
+        }
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -250,9 +278,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            mAuthTask = new UserLoginTask(email,identifiant, password);
+            mAuthTask.execute(getString(R.string.url));
         }
+    }
+    private boolean isIdentifiantValid(String identifiant) {
+        //TODO: Replace this with your own logic
+        return !identifiant.contains("@");
     }
 
     private boolean isEmailValid(String email) {
@@ -373,56 +405,122 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         int ADDRESS = 0;
         int IS_PRIMARY = 1;
     }
+    public String Get(String sAddress) throws IOException
+    {
+        StringBuilder sb = new StringBuilder();
+
+        BufferedInputStream bis = null;
+        URL url = new URL(sAddress+"/getUsers");
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        int responseCode;
+        con.setRequestMethod("GET");
+
+
+        con.setConnectTimeout( 10000 );
+        con.setReadTimeout( 10000 );
+
+        responseCode = con.getResponseCode();
+
+        if ( responseCode == 200)
+        {
+            bis = new java.io.BufferedInputStream(con.getInputStream());
+            BufferedReader reader = new BufferedReader(new InputStreamReader(bis, "UTF-8"));
+            String line = null;
+
+            while ((line = reader.readLine()) != null)
+                sb.append(line);
+
+            bis.close();
+        }
+
+        return sb.toString();
+    }
+    public static String POST(String string_url, Compte compte){
+
+
+        String result = "";
+        try {
+
+            URL obj = new URL(string_url);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+            con.setRequestMethod("POST");
+            con.setRequestProperty( "Content-type", "application/json");
+            con.setRequestProperty( "Accept", "*/*" );
+
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.accumulate("username", compte.getIdentifiant());
+            jsonObject.accumulate("email", compte.getEmail());
+            jsonObject.accumulate("password", compte.getMotDePasse());
+
+            con.setDoOutput(true);
+            OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+            wr.write(jsonObject.toString());
+            wr.flush();
+            wr.close();
+
+            int responseCode = con.getResponseCode();
+            if(responseCode==201 || responseCode==200)
+            {
+
+            }
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+        } catch (Exception e) {
+            Log.d("InputStream", e.getLocalizedMessage());
+        }
+
+        // 11. return result
+        return result;
+    }
 
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+    public class UserLoginTask extends AsyncTask<String, Void, String> {
 
         private final String mEmail;
+        private final String mIdentifiant;
         private final String mPassword;
 
-        UserLoginTask(String email, String password) {
+        UserLoginTask(String email,String identifiant, String password) {
             mEmail = email;
+            mIdentifiant = identifiant;
             mPassword = password;
         }
 
         @Override
-        protected Boolean doInBackground(Void... params) {
+        protected String doInBackground(String... urls) {
             // TODO: attempt authentication against a network service.
 
+            compte = new Compte();
+            compte.setEmail(mEmail);
+            compte.setIdentifiant(mIdentifiant);
+            compte.setMotDePasse(mPassword);
             try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
+                return Get(urls[0]);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-
-            // TODO: register the new account here.
-            return true;
+            return "tatak";
         }
 
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
-            showProgress(false);
+            // TODO: register the new account here.
 
-            if (success) {
-                Toast.makeText(LoginActivity.this, "mot de passe howa hadak", Toast.LENGTH_LONG).show();
-                finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Toast.makeText(getBaseContext(), "Data Sent!", Toast.LENGTH_LONG).show();
         }
 
         @Override

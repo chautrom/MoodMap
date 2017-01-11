@@ -146,6 +146,7 @@
     <orderEntry type="library" exported="" name="support-core-ui-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-9.0.0" level="project" />
+    <orderEntry type="library" exported="" name="httpcore-4.4.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-9.0.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-24.2.1" level="project" />
@@ -160,5 +161,6 @@
     <orderEntry type="library" exported="" name="commons-lang3-3.3.2" level="project" />
     <orderEntry type="library" exported="" name="osmdroid-android-5.6.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-9.0.0" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.http.legacy-android-24" level="project" />
   </component>
 </module>
