@@ -1,0 +1,138 @@
+{
+  "project_info": {
+    "project_number": "855722749058",
+    "project_id": "firebase-moodmap"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855722749058:android:9a3857882758b359",
+        "android_client_info": {
+          "package_name": "mapaid.prototype.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855722749058-gan1o2h2pscvdaks8r4r2dia2pvgg14e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mapaid.prototype.com",
+            "certificate_hash": "D0BBB2A6DA2468B61367954B773681DCC74E10B9"
+          }
+        },
+        {
+          "client_id": "855722749058-psf8sc8tr1n3lpcfagif1looot4ftu17.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "855722749058-c6fkjj97u8vlgsiacir9d9hn41m7t658.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnoV_TZoGizXEE9B0STJdQhyViYtgn7uE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855722749058:android:275faa3ccca4b73a",
+        "android_client_info": {
+          "package_name": "com.prototype.mapaid.moodmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855722749058-4ca1rka6hpg1v2agr0p9clo1an0sauul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prototype.mapaid.moodmap",
+            "certificate_hash": "D0BBB2A6DA2468B61367954B773681DCC74E10B9"
+          }
+        },
+        {
+          "client_id": "855722749058-psf8sc8tr1n3lpcfagif1looot4ftu17.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "855722749058-c6fkjj97u8vlgsiacir9d9hn41m7t658.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnoV_TZoGizXEE9B0STJdQhyViYtgn7uE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855722749058:android:536ebb0172ec0e42",
+        "android_client_info": {
+          "package_name": "com.example.mapaide.moodmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855722749058-vb0eqct6ugganrantfe7ouri6aop2m3o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mapaide.moodmap",
+            "certificate_hash": "F33A8CCB06E95181AC7F9A529F3B7FDD1E88258A"
+          }
+        },
+        {
+          "client_id": "855722749058-psf8sc8tr1n3lpcfagif1looot4ftu17.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "855722749058-c6fkjj97u8vlgsiacir9d9hn41m7t658.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnoV_TZoGizXEE9B0STJdQhyViYtgn7uE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
