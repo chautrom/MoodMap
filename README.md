@@ -4,5 +4,5 @@
 
 ## Projet MoodMap
 
-### Projet à déposer dans votre wamp -> /www/symphony2
+### Projet à déposer dans votre wamp -> /www/symfony2
 
