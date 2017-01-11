@@ -1,0 +1,26 @@
+
+
+étape 1)  INSTALLATION DE MYSQL
+	sudo apt-get install mysql-server 
+
+étape 2) LANCEMENT
+	sudo /etc/init.d/mysql start
+
+étape 3) VERIFICATION DU STATUT
+	sudo /etc/init.d/mysql status
+
+étape 4) CONNEXTION
+	mysql -u root ( pour définir le mit de passe)
+	mysql -u root -p
+ 
+étape 5)  INSTALLATION DE LA BASE
+	mysql -u root -p  < ./Desktop/dbMoodmap.sql
+
+étape 6)  CONNEXION à LA BASE
+	connect moodmapDB
+
+étape 7) INSERION D'UNE DONNEE DANS LA BASE
+	insert into user VALUES(1,"elhafiani","elhafiani@ensicaen.fr","ZDALDAKKZDLAAADZODZIDFRFR") ;
+
+	
+
