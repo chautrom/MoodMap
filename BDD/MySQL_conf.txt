@@ -12,7 +12,7 @@ Etape 2) LANCEMENT
 Etape 3) VERIFICATION DU STATUT
 	sudo /etc/init.d/mysql status
 
-Etape 4) CONNEXTION AU SERVEUR MYSQL
+Etape 4) CONNEXION AU SERVEUR MYSQL
 	mysql -u root ( pour définir le mot de passe)
  
 	EN SUITE
