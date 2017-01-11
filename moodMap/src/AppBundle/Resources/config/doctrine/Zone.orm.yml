@@ -1,0 +1,27 @@
+AppBundle\Entity\Zone:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ZoneRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '20'
+        p1X:
+            type: integer
+            column: p1_x
+        p1Y:
+            type: integer
+            column: p1_y
+        p2X:
+            type: integer
+            column: p2_x
+        p2Y:
+            type: integer
+            column: p2_y
+    lifecycleCallbacks: {  }

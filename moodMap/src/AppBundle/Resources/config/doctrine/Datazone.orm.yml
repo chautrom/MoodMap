@@ -1,0 +1,20 @@
+AppBundle\Entity\Datazone:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\DatazoneRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        score:
+            type: float
+        idZone:
+            type: integer
+            column: id_zone
+        idCriteria:
+            type: integer
+            column: id_criteria
+    lifecycleCallbacks: {  }
