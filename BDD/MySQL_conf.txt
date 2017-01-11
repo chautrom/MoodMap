@@ -1,0 +1,30 @@
+--------------------------------------
+-- Auteur : El-Hafiani Abdelmoughite
+-- Dernière modification : 11/01/2017
+---------------------------------------
+
+Etape 1) INSTALLATION DE MYSQL
+	sudo apt-get install mysql-server 
+
+Etape 2) LANCEMENT
+	sudo /etc/init.d/mysql start
+
+Etape 3) VERIFICATION DU STATUT
+	sudo /etc/init.d/mysql status
+
+Etape 4) CONNEXTION AU SERVEUR MYSQL
+	mysql -u root ( pour définir le mot de passe)
+ 
+	EN SUITE
+	mysql -u root -p
+  
+Etape 5) LANCEMENT DU SCRIPT D'INSTALLATION DE LA BDD 
+	\. ./dbMoodmap.sql	
+
+Etape 6) LANCEMENT DU SCRIPT D'INSERTION ET AFFICHAGE DE DONNEES
+	\. ./requêtes.sql
+
+	
+
+	
+
