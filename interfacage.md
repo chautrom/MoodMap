@@ -3,8 +3,11 @@
 ## **/createUser** - POST - Creation d'un utilisateur
 ## Paramètres :
  string name : nom de l'utilisateur
+ 
  string hashPassword : haché du mot de passe
+ 
  string email : adresse mail
+ 
 ## Retour : 
  objet JSON : {"erreur":"false", "content":{objet User créé}} ou {"erreur":"true", "message":"message d'erreur"}
 
@@ -12,6 +15,7 @@
 ## **/validateUser** - POST - Validation du challenge (seconde étape de création d'un utilisateur)
 ## Paramètres :
  entier idUser : identifiant de l'utilisateur
+ 
  string challenge : challenge à vérifier
 ## Retour : 
  objet JSON : {"erreur":"false", "content":{objet User validé}} ou {"erreur":"true", "message":"message d'erreur"}
@@ -19,7 +23,8 @@
 
 ## **/connectUser** - GET - Connexion d'un utilisateur
 ## Paramètres au format JSON :
- string name : nom de l'utilisateur
+ string email : email de l'utilisateur
+ 
  string hashPassword : haché du mot de passe
 ## Retour : 
  objet JSON : {"erreur":"false", "content":{objet User connecté}} ou {"erreur":"true", "message":"message d'erreur"}
@@ -44,7 +49,8 @@
 
 ## **/addVote** - POST - Ajouter une évaluation (note) du critère c sur le point de coordonnées x et y pour l'utilisateur d'identifiant iu
 ## Paramètres au format JSON :
- string name : nom de l'utilisateur
+ entier userId : identifiant de l'utilisateur
+ 
  string hashPassword : haché du mot de passe
 ## Retour : 
  objet JSON : {"erreur":"false", "content":{objet User connecté}} ou {"erreur":"true", "message":"message d'erreur"}
