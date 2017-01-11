@@ -24,11 +24,11 @@ CREATE TABLE IF NOT EXISTS `moodmapDB`.`user` (
 
 
 -- -----------------------------------------------------
--- Table `moodmapDB`.`impression`
+-- Table `moodmapDB`.`criteria`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `moodmapDB`.`impression` ;
+DROP TABLE IF EXISTS `moodmapDB`.`criteria` ;
 
-CREATE TABLE IF NOT EXISTS `moodmapDB`.`impression` (
+CREATE TABLE IF NOT EXISTS `moodmapDB`.`criteria` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `iconpath` VARCHAR(45) NOT NULL,
@@ -61,18 +61,18 @@ CREATE TABLE IF NOT EXISTS `moodmapDB`.`datazone` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `score` FLOAT NOT NULL,
   `id_zone` INT(11) NOT NULL,
-  `id_impression` INT(11) NOT NULL,
+  `id_criteria` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_datazone_1_idx` (`id_zone` ASC),
-  INDEX `id_im_idx` (`id_impression` ASC),
+  INDEX `id_im_idx` (`id_criteria` ASC),
   CONSTRAINT `id_z`
     FOREIGN KEY (`id_zone`)
     REFERENCES `moodmapDB`.`zone` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `id_im`
-    FOREIGN KEY (`id_impression`)
-    REFERENCES `moodmapDB`.`impression` (`id`)
+    FOREIGN KEY (`id_criteria`)
+    REFERENCES `moodmapDB`.`criteria` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -85,11 +85,12 @@ DROP TABLE IF EXISTS `moodmapDB`.`vote` ;
 CREATE TABLE IF NOT EXISTS `moodmapDB`.`vote` (
   `id` INT NULL AUTO_INCREMENT,
   `id_user` INT(11) NOT NULL,
-  `id_impression` INT(11) NOT NULL,
+  `id_criteria` INT(11) NOT NULL,
   `id_datazone` INT(11) NOT NULL,
+  `score` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `id_idx` (`id_user` ASC),
-  INDEX `id_idx1` (`id_impression` ASC),
+  INDEX `id_idx1` (`id_criteria` ASC),
   INDEX `id_d_idx` (`id_datazone` ASC),
   CONSTRAINT `id_u`
     FOREIGN KEY (`id_user`)
@@ -97,8 +98,8 @@ CREATE TABLE IF NOT EXISTS `moodmapDB`.`vote` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `id_i`
-    FOREIGN KEY (`id_impression`)
-    REFERENCES `moodmapDB`.`impression` (`id`)
+    FOREIGN KEY (`id_criteria`)
+    REFERENCES `moodmapDB`.`criteria` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `id_d`
