@@ -30,7 +30,7 @@
  objet JSON : {"erreur":"false", "content":{objet User connecté}} ou {"erreur":"true", "message":"message d'erreur"}
 
 
-## **/getModifiedItinierary** - POST - Recuperation d'un itinéraire émotionnel
+## **/getModifiedItinerary** - POST - Recuperation d'un itinéraire émotionnel
 ## Paramètres au format JSON :
  float xA : abscisse A
  
@@ -40,25 +40,39 @@
  
  float yB : ordonnée B
  
- liste des waypoints lWaypoints
+ liste des waypoints : lWaypoints
  
  string h : humeur
  
 ## Retour : 
  objet JSON : {"erreur":"false", "content":{liste des waypoints modifiée}} ou {"erreur":"true", "message":"message d'erreur"}
 
-## **/addVote** - POST - Ajouter une évaluation (note) du critère c sur le point de coordonnées x et y pour l'utilisateur d'identifiant iu
+## **/addVote** - POST - Ajouter une évaluation sur un critère
 ## Paramètres au format JSON :
  entier userId : identifiant de l'utilisateur
  
- string hashPassword : haché du mot de passe
+ float  x : abscisse du point
+ 
+ float  y : ordonnée du point
+ 
+ entier idCriteria : identifiant du critère
+ 
+ entier score : score associé au vote
+ 
 ## Retour : 
  objet JSON : {"erreur":"false", "content":{objet User connecté}} ou {"erreur":"true", "message":"message d'erreur"}
 
 
 ## **/updateVote**- POST - Modifier l'évaluation d'identifiant ie (note)
 ## Paramètres au format JSON :
- entier userId : identifiant de l'utilisat*
+ entier userId : identifiant de l'utilisateur
+ 
+ entier idVote : identifiant du vote à modifier
+ 
+ entier idCriteria : identifiant du critère du vote à modifier
+ 
+ entier score : nouveau score 
+ 
 ## Retour : 
  objet JSON : {"erreur":"false", "content":{liste des votes}} ou {"erreur":"true", "message":"message d'erreur"}
  
