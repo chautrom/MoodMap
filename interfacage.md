@@ -47,7 +47,8 @@
 ## Retour : 
  objet JSON : {"erreur":"false", "content":{liste des waypoints modifiée}} ou {"erreur":"true", "message":"message d'erreur"}
 
-## **/addVote** - POST - Ajouter une évaluation sur un critère
+## **/createVote** - POST - Ajouter une évaluation sur un critère
+## Si une evaluation existe 
 ## Paramètres au format JSON :
  entier userId : identifiant de l'utilisateur
  
