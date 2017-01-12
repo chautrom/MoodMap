@@ -109,13 +109,9 @@ class UserController extends Controller
 			array_push($data, $i);
 		}
 		
-		return new Response(json_encode($data));
+		$jsonResponseMessage =  '{"erreur":false,"content-type": "User","content":' . json_encode($data) . '}';
+		return new Response($jsonResponseMessage);
     }
-
-	public static function generateErrorResponse($message){
-		$jsonErrorMessage =  '{"erreur":true,"message":"'. $message . '"}';
-		return new Response($jsonErrorMessage);
-	}
   
    /**
      * @Route("/connectUser")
@@ -165,5 +161,13 @@ class UserController extends Controller
 	
 	return UserController::generateErrorResponse($INCORRECT_PASSWORD);	
   }
+  
+  
+
+	public static function generateErrorResponse($message){
+		$jsonErrorMessage =  '{"erreur":true,"message":"'. $message . '"}';
+		return new Response($jsonErrorMessage);
+	}
 	
 }
+
