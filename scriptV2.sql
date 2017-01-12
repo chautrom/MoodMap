@@ -253,9 +253,9 @@ INSERT INTO `vote` (`id`, `id_user`, `id_criteria`, `id_datazone`, `score`) VALU
 CREATE TABLE IF NOT EXISTS `zone` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `x` float NOT NULL,
-  `y` float NOT NULL,
-  `r` float NOT NULL,
+  `x` double NOT NULL,
+  `y` double NOT NULL,
+  `r` double NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
