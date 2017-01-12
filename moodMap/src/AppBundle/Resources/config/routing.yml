@@ -22,3 +22,15 @@ get_liste_users:
 get_liste_users:
     path:     /getListeZones
     defaults: { _controller: AppBundle:Zone:getListeZones }
+	
+create_vote:
+    path:     /addVote
+    defaults: { _controller: AppBundle:VoteController:createVote }
+
+update_vote:
+    path:     /updateVote
+    defaults: { _controller: AppBundle:VoteController:updateVote }
+
+get_all_votes_from_user:
+    path:     /getAllVotesFromUser
+    defaults: { _controller: AppBundle:VoteController:getAllVotesFromUser }
