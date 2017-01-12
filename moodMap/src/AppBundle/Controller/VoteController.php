@@ -192,21 +192,10 @@ class VoteController extends Controller
 		//DataBase tools
 		$entityManager 		= $this->getDoctrine()->getManager();
 		$userRepository 	= $entityManager->getRepository('AppBundle:User');
-		$voteRepository 	= $entityManager->getRepository('AppBundle:Vote');
-		$criteriaRepository = $entityManager->getRepository('AppBundle:Criteria');
-		$datazoneRepository	= $entityManager->getRepository('AppBundle:Datazone');
-		$zoneRepository		= $entityManager->getRepository('AppBundle:Zone');
 		
         //Messages d'erreur
-		$NO_USERID_ERROR_MESSAGE 		= '"Data required : userId"';
-		$NO_COORDINATES_MESSAGE 		= '"Data required : coordinates x & y"';
-		$NO_CRITERA_MESSAGE				= '"Data required : idCriteria"';
-		$WRONG_DATA_SCORE				= '"Data out of bounds : score"';
-		$INEXISTANT_USER_MESSAGE		= '"Specified user does not exist"';
-		$INEXISTANT_CRITERIA_MESSAGE	= '"Specified criteria does not exist"';
-		$INEXISTANT_ZONE_MESSAGE 		= '"Specified zone does not exist"';
-		$INEXISTANT_DATAZONE_MESSAGE 	= '"Specified datazone does not exist"';
-		$DUPPLICATE_VOTE_MESSAGE		= '"Vote already exists"';
+		$NO_USERID_ERROR_MESSAGE 		= 'Data required : userId';
+		$INEXISTANT_USER_MESSAGE		= 'Specified user does not exist';
 		
 		//Récupération des données de la requête HTTP
 		$inputData = json_decode($this->get("request")->getContent(), true);		
@@ -214,13 +203,25 @@ class VoteController extends Controller
 		if(!isset($inputData['userId'])){
 			return VoteController::generateErrorResponse($NO_USERID_ERROR_MESSAGE);
 		}
-
-		$allVotes = $voteRepository->findBy(array('idUser' => $inputData['userId']));
+		
+		//Vérfications préalables
+		//Existence de l'utilisateur
+		
+		$user = $userRepository->findOneBy(array('id' => $inputData['userId']));
+		if (!$user) {
+			return VoteController::generateErrorResponse($INEXISTANT_USER_MESSAGE);
+		}
+		
+		$data = $entityManager->createQuery('SELECT v.id, v.score, z.x, z.y FROM AppBundle:Vote v, AppBundle:Datazone d, AppBundle:Zone z WHERE v.idUser =' . $inputData['userId'] . 'AND v.idDatazone = d.id AND d.idZone = z.id')->getResult();
+		
+		/*$allVotes = $voteRepository->findBy(array('idUser' => $inputData['userId']));
 
 		$data = array();
 		foreach ($allVotes as $vote) {
 			$datazone = $datazoneRepository->findBy(array('id' => $vote->getIdDatazone()));
 			$zone = $datazoneRepository->findBy(array('id' => $datazone[0]->getIdZone()));
+			
+			echo $zone[0];
 			
 			$res = array(
 				'x' => $zone[0]->getX(),
@@ -230,9 +231,9 @@ class VoteController extends Controller
 			);
 			array_push($data, $res);
 		}
+		*/
 		
-		
-		$jsonResponseMessage =  '{"erreur":false,"content-type": "List de Vote","content":' . json_encode($data) . '}';
+		$jsonResponseMessage =  '{"erreur":false,"content-type": "Liste de Vote","content":' . json_encode($data) . '}';
 		return new Response($jsonResponseMessage);
     }
 	
