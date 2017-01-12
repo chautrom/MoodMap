@@ -17,23 +17,22 @@ class CriteriaController extends Controller
     public function getListeCriteriasAction()
     {
 		
-        $sriterias = $this->getDoctrine()
+        $criterias = $this->getDoctrine()
 			->getRepository('AppBundle:Criteria')
 			->findAll();
 		
-		//echo print_r($users, true);
+		
 		
 		$data = array();
-		/*foreach ($users as $item) {
+		foreach ($criterias as $item) {
 			$i = array(
 				'id' => $item->getId(),
-				'username' => $item->getUsername(),
-				'email' => $item->getEmail(),
-				'activated' => $item->getActivated()
+				'iconpath' => $item->getIconpath(),
+				'name' => $item->getName(),
 			);
 
 			array_push($data, $i);
-		}*/
+		}
 		
 		return new Response(json_encode($data));
     }
