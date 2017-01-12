@@ -76,7 +76,7 @@ class Zone
     /**
      * Set p1X
      *
-     * @param integer $p1X
+     * @param float $p1X
      * @return Zone
      */
     public function setP1X($p1X)
@@ -89,7 +89,7 @@ class Zone
     /**
      * Get p1X
      *
-     * @return integer 
+     * @return float 
      */
     public function getP1X()
     {
@@ -99,7 +99,7 @@ class Zone
     /**
      * Set p1Y
      *
-     * @param integer $p1Y
+     * @param float $p1Y
      * @return Zone
      */
     public function setP1Y($p1Y)
@@ -112,7 +112,7 @@ class Zone
     /**
      * Get p1Y
      *
-     * @return integer 
+     * @return float 
      */
     public function getP1Y()
     {
@@ -122,7 +122,7 @@ class Zone
     /**
      * Set p2X
      *
-     * @param integer $p2X
+     * @param float $p2X
      * @return Zone
      */
     public function setP2X($p2X)
@@ -135,7 +135,7 @@ class Zone
     /**
      * Get p2X
      *
-     * @return integer 
+     * @return float 
      */
     public function getP2X()
     {
@@ -145,7 +145,7 @@ class Zone
     /**
      * Set p2Y
      *
-     * @param integer $p2Y
+     * @param float $p2Y
      * @return Zone
      */
     public function setP2Y($p2Y)
@@ -158,7 +158,7 @@ class Zone
     /**
      * Get p2Y
      *
-     * @return integer 
+     * @return float 
      */
     public function getP2Y()
     {

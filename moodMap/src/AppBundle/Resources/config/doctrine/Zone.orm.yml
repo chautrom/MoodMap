@@ -13,15 +13,15 @@ AppBundle\Entity\Zone:
             type: string
             length: '20'
         p1X:
-            type: integer
+            type: float
             column: p1_x
         p1Y:
-            type: integer
+            type: float
             column: p1_y
         p2X:
-            type: integer
+            type: float
             column: p2_x
         p2Y:
-            type: integer
+            type: float
             column: p2_y
     lifecycleCallbacks: {  }
