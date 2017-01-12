@@ -4,7 +4,7 @@ package com.example.mapaide.moodmap;
  * Created by Sara on 12/01/2017.
  */
 public class Evaluation {
-    private String critere;
+    private int critere;
     private double longitude;
     private double latitude;
     private int score;
@@ -13,7 +13,7 @@ public class Evaluation {
 
     }
 
-    public Evaluation(String c, double log, double lt ,int s){
+    public Evaluation(int c, double log, double lt ,int s){
         this.critere = c;
         this.longitude = log;
         this.latitude = lt;
@@ -25,7 +25,7 @@ public class Evaluation {
         return getCritere() + "," + getScore() + "," ;
     }
 
-    public void setCritere(String crit) {
+    public void setCritere(int crit) {
         this.critere =crit;
     }
 
@@ -41,7 +41,7 @@ public class Evaluation {
         this.latitude = lat;
     }
 
-    public String getCritere() {
+    public int getCritere() {
         return critere;
     }
 

@@ -70,7 +70,7 @@ public class EvaluationActivity extends AppCompatActivity implements AdapterView
     public void envoyer(){
         Evaluation ev = new Evaluation();
         //GeoPoint location = new GeoPoint()
-        ev.setCritere(String.valueOf(spinner.getSelectedItem()));
+        ev.setCritere(spinner.getSelectedItemPosition());
         ev.setScore(ratingBar.getNumStars());
         evalTask = new evaluationTask(ev);
         evalTask.execute(getString(R.string.url));

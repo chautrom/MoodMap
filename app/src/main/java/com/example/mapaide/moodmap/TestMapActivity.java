@@ -2,6 +2,7 @@ package com.example.mapaide.moodmap;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
@@ -31,6 +32,7 @@ import org.osmdroid.views.overlay.FolderOverlay;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.OverlayItem;
+import org.osmdroid.views.overlay.Polygon;
 import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
@@ -53,6 +55,7 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
     Marker startMarker;
     IMapController mapController;
     private GetInfoZoneTask infoZoneTask = null;
+    TabCouleurs colors;
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +82,11 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         if( location != null ) {
             currentLocation = new GeoPoint(location.getLatitude(), location.getLongitude());
         }
-
+         colors = new TabCouleurs();
         //mapController.setCenter(startPoint);
         infoZoneTask = new GetInfoZoneTask();
         infoZoneTask.execute(getString(R.string.url));
+        //map.invalidate();
 
         startMarker = new Marker(map);
         //startMarker.setPosition(startPoint);
@@ -90,17 +94,7 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         startMarker.setDraggable(true);
         map.getOverlays().add(startMarker);
 		
-		colors = new TabCouleurs();
-        GeoPoint test0 = new GeoPoint(49.1856, -0.3646);
-        drawCircle(test0, colors.couleurs[0][4], 10.0f);
-        map.invalidate();
 
-        GeoPoint test1 = new GeoPoint(49.18378, -0.36008);
-        drawCircle(test1, Color.YELLOW, 10.0f);
-        map.invalidate();
-
-        drawCircle(currentLocation, colors.couleurs[1][4], 10.0f);
-        map.invalidate();
 
         /*
         GpsMyLocationProvider gpsLocationProvider = new GpsMyLocationProvider(this);
@@ -153,7 +147,7 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
 */
 
     }
-    public String GET(String sAddress) throws IOException, JSONException {
+    public String GET(String sAddress) throws IOException {
         StringBuilder sb = new StringBuilder();
 
         BufferedInputStream bis = null;
@@ -190,30 +184,50 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
             // TODO: attempt authentication against a network service.
 
 
+            String infoZones = null;
             try {
-                String infoZones = GET(urls[0]);
-                JSONObject json = new JSONObject(infoZones);
-                JSONArray content = new JSONArray(json.getString("content"));
-
-                int i = content.length();
-
+                infoZones = GET(urls[0]);
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
-            return "tatak";
+
+
+            return infoZones;
+
+
         }
+
 
         // TODO: register the new account here.
 
 
         @Override
-        protected void onPostExecute(String result) {
-            Toast.makeText(getBaseContext(), "Data Retrived!", Toast.LENGTH_LONG).show();
+        protected void onPostExecute(String infoZones) {
+            try {
+                JSONObject json = new JSONObject(infoZones);
+                JSONArray content = new JSONArray(json.getString("content"));
+                for (int i = 0; i < content.length(); i++) {
+                    JSONObject jobject = new JSONObject(content.getString(i));
+                    Evaluation eval = new Evaluation();
+                    /*if (jobject.getInt("idCriteria") == 1) {
+                        eval.setCritere(0);
+                    } else {
+                        eval.setCritere(1);
+                    }*/
+                    eval.setCritere(jobject.getInt("idCriteria"));
+                    eval.setScore(jobject.getInt("score"));
+                    eval.setLatitude(jobject.getDouble("y"));
+                    eval.setLongitude(jobject.getDouble("x"));
+                    GeoPoint test0 = new GeoPoint(eval.getLatitude(), eval.getLongitude());
+                    drawCircle(test0, colors.couleurs[eval.getCritere()-1][eval.getScore()], 30.0f);
+                    map.invalidate();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
         }
-
-
     }
 
     public void onResume(){
@@ -254,6 +268,6 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         overlay.setStrokeWidth(rayon);
         overlay.setPoints(Polygon.pointsAsCircle(position, rayon));
         map.getOverlays().add(overlay);
-        //map.invalidate();
+        map.invalidate();
     }
 }
