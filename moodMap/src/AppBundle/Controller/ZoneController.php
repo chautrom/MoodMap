@@ -14,9 +14,28 @@ class ZoneController extends Controller
 	/**
      * @Route("/getZones")
      */
-    public function getListeZonesAction()
+    public function getZonesAction()
     {
+		//DataBase tools
+		$entityManager 		= $this->getDoctrine()->getManager();
+		$userRepository 	= $entityManager->getRepository('AppBundle:User');
+		$voteRepository 	= $entityManager->getRepository('AppBundle:Vote');
+		$criteriaRepository = $entityManager->getRepository('AppBundle:Criteria');
 		
+		
+		//Récupération des données de la requête HTTP
+		$inputData = json_decode($this->get("request")->getContent(), true);
+		
+		//Contrôle des données en entrée
+		if(!isset($inputData['x']) or !isset($inputData['y'])){
+			return ZoneController::generateErrorResponse($NO_COORDINATES_MESSAGE);
+		}
+		
+		//Vérfications préalables
+		//Existence de l'utilisateur
+		
+		$user = $userRepository->findOneBy(array('id' => $inputData['userId']));
+
         $zones = $this->getDoctrine()
 			->getRepository('AppBundle:Zone')
 			->findAll();
@@ -39,4 +58,8 @@ class ZoneController extends Controller
 		return new Response(json_encode($data));
     }
 
+    public static function generateErrorResponse($message){
+		$jsonErrorMessage =  '{"erreur":true,"message":'. $message . '}';
+		return new Response($jsonErrorMessage);
+	}
 }
