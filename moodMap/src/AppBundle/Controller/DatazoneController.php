@@ -40,56 +40,18 @@ class DatazoneController extends Controller
 		return new Response($jsonResponse);
     }
 	
+
 	
 	/**
      * @Route("/getInfoZones")
      */
     public function getInfoZonesAction()
     {
+		$qb = $this->getDoctrine()->getManager()->createQuery(
+		'SELECT z.x,z.y,d.score,d.idCriteria FROM AppBundle:Zone z JOIN AppBundle:Datazone d WHERE z.id = d.idZone');
+		$data=$qb->getResult();
 		
-        /**$em = $this->getDoctrine()->getManager();
-		
-		$requete=$em->createQuery('SELECT * FROM CRMCoreBundle:Zone z JOIN CRMCoreBundle:Datazone d')
-			->getResult();
-		
-		echo $requete;**/
-		
-		$datazones = $this->getDoctrine()
-			->getRepository('AppBundle:Datazone')
-			->findAll();
-			
-		$zones = $this->getDoctrine()
-			->getRepository('AppBundle:Zone')
-			->findAll();
-		
-		
-		$data = array();
-		foreach ($datazones as $itemDatazone) {
-			$d = array(
-				'idZone' => $itemDatazone->getIdZone(),
-				'score' => $itemDatazone->getScore(),
-				'idCriteria' => $itemDatazone->getIdCriteria()
-			);
-			foreach ($zones as $itemZone){
-				$z = array(
-					'id' => $itemZone->getId(),
-					'x' => $itemZone->getX(),
-					'y' => $itemZone->getY(),
-				);
-				if($d['idZone'] == $z['id']){
-					$res = array(
-						'x' => $itemZone->getX(),
-						'y' => $itemZone->getY(),
-						'score' => $itemDatazone->getScore(),
-						'idCriteria' => $itemDatazone->getIdCriteria()
-					);
-					array_push($data, $res);
-				};
-
-
-			};
-		};
-		
+		$jsonResponse = '{"erreur":false, "content-type":"List of Datazone", "content":' . json_encode($data) . '}';
 		
 		$jsonResponse = '{"erreur":false, "content-type":"List of Datazone", "content":' . json_encode($data) . '}';
 		return new Response($jsonResponse);
