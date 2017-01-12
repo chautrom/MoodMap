@@ -45,9 +45,9 @@ DROP TABLE IF EXISTS `moodmapDB`.`zone` ;
 CREATE TABLE IF NOT EXISTS `moodmapDB`.`zone` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
-  `x` FLOAT NOT NULL,
-  `y` FLOAT NOT NULL,
-  `r` FLOAT NOT NULL,
+  `x` DOUBLE NOT NULL,
+  `y` DOUBLE NOT NULL,
+  `r` DOUBLE NOT NULL,
   PRIMARY KEY (`id`));
 
 
