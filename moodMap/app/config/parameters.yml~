@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: moodmapDB
+    database_user: root
+    database_password: gwengwen
+    mailer_transport: gmail
+    mailer_host: teammoodmap@gmail.com
+    mailer_user: teammoodmap@gmail.com
+    mailer_password: teamMoodmap@teamMoodmap
+    secret: 313b50c082934d857ba531ab53a9e3da3e186c63
