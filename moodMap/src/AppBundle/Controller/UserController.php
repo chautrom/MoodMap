@@ -171,34 +171,41 @@ class UserController extends Controller
   }
 
 
- /**
+	/**
      * @Route("/confirmUser")
      */
-  public  function confirmUser()
-  {
-	$username  = $_GET['username'];
-	$challenge = $_GET['challenge'];
-
-	//DataBase tools
-	$entityManager 	= $this->getDoctrine()->getManager();
-	$userRepository = $entityManager->getRepository('AppBundle:User');
-
-	$user = $userRepository->findOneBy(array('username' => $username));
-	if(!$user){
-	  	$jsonResponseMessage =  '{"You don\'t have the permission to access on this server -_- "}';
-		return new Response($jsonResponseMessage);
+	public  function confirmUser()
+	{
+		$NO_ACCESS_MESSAGE 		= 'You don\'t have the permission to access on this server -_-';
+		$ATTACK_SERVER_MESSAGE	= 'Don\'t try to attack our server -_- ';
+		$username  = $_GET['username'];
+		$challenge = $_GET['challenge'];
+	
+		//DataBase tools
+		$entityManager 	= $this->getDoctrine()->getManager();
+		$userRepository = $entityManager->getRepository('AppBundle:User');
+	
+		$user = $userRepository->findOneBy(array('username' => $username));
+		if(!$user){
+			return UserController::generateErrorResponse($NO_ACCESS_MESSAGE);
+		}
+		
+		if( $challenge == $user->getChallenge() )
+		{
+			$user->setActivated(true);
+			$entityManager->persist($user);
+			$res = $entityManager->flush();
+				return new Response("Welcome to our application, Moodmap :). You can now acces the server.");
+			}
+	
+		return UserController::generateErrorResponse($ATTACK_SERVER_MESSAGE);
+				
 	}
 	
-	if( $challenge == $user->getChallenge() )
-	 {
-		$user->setActivated(true);
-		$entityManager->persist($user);
-		$res = $entityManager->flush();
-	        return new Response("welcome to our application moodmap :) ");
-         }
+	public static function generateErrorResponse($message){
+		$jsonErrorMessage =  '{"erreur":true,"message":"'. $message . '"}';
+		return new Response($jsonErrorMessage);
+	}
 
-	return new Response("Don\'t try to attack our server -_- ");
-			
-  }
 	
 }

@@ -192,6 +192,9 @@ class VoteController extends Controller
 		//DataBase tools
 		$entityManager 		= $this->getDoctrine()->getManager();
 		$userRepository 	= $entityManager->getRepository('AppBundle:User');
+		$voteRepository		= $entityManager->getRepository('AppBundle:Vote');
+		$datazoneRepository	= $entityManager->getRepository('AppBundle:Datazone');
+		$zoneRepository		= $entityManager->getRepository('AppBundle:Zone');
 		
         //Messages d'erreur
 		$NO_USERID_ERROR_MESSAGE 		= 'Data required : userId';
@@ -212,34 +215,15 @@ class VoteController extends Controller
 			return VoteController::generateErrorResponse($INEXISTANT_USER_MESSAGE);
 		}
 		
-		$data = $entityManager->createQuery('SELECT v.id, v.score, z.x, z.y FROM AppBundle:Vote v, AppBundle:Datazone d, AppBundle:Zone z WHERE v.idUser =' . $inputData['userId'] . 'AND v.idDatazone = d.id AND d.idZone = z.id')->getResult();
+		$allVotes = $entityManager->createQuery('SELECT v.id, v.score, z.x, z.y FROM AppBundle:Vote v, AppBundle:Datazone d, AppBundle:Zone z WHERE v.idUser =' . $inputData['userId'] . 'AND v.idDatazone = d.id AND d.idZone = z.id')->getResult();
 		
-		/*$allVotes = $voteRepository->findBy(array('idUser' => $inputData['userId']));
-
-		$data = array();
-		foreach ($allVotes as $vote) {
-			$datazone = $datazoneRepository->findBy(array('id' => $vote->getIdDatazone()));
-			$zone = $datazoneRepository->findBy(array('id' => $datazone[0]->getIdZone()));
-			
-			echo $zone[0];
-			
-			$res = array(
-				'x' => $zone[0]->getX(),
-				'y' => $zone[0]->getY(),
-				'score' => $vote->getScore(),
-				'idCriteria' => $vote->getIdCriteria()
-			);
-			array_push($data, $res);
-		}
-		*/
-		
-		$jsonResponseMessage =  '{"erreur":false,"content-type": "Liste de Vote","content":' . json_encode($data) . '}';
+		$jsonResponseMessage =  '{"erreur":false,"content-type": "Liste de Vote","content":' . json_encode($allVotes) . '}';
 		return new Response($jsonResponseMessage);
     }
 	
 	
 	public static function generateErrorResponse($message){
-		$jsonErrorMessage =  '{"erreur":true,"message":'. $message . '}';
+		$jsonErrorMessage =  '{"erreur":true,"message":"'. $message . '"}';
 		return new Response($jsonErrorMessage);
 	}
 
