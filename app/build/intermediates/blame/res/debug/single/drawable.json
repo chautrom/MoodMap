@@ -1,0 +1,262 @@
+[
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/marker_default_focused_base.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/marker_default_focused_base.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/marker_default.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/marker_default.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/navto_small.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/navto_small.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/drawable/common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/ic_menu_mylocation.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/ic_menu_mylocation.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/navigation_empty_icon.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/navigation_empty_icon.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_edit_text_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_icon_dark.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/drawable/common_plus_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/design_snackbar_background.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/design_snackbar_background.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/side_nav_bar.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/src/main/res/drawable/side_nav_bar.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/bonuspack_bubble.9.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/bonuspack_bubble.9.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ic_ab_back_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_tick_mark_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/previous.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/previous.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_light.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/drawable/common_plus_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/direction_arrow.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/direction_arrow.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/ic_menu_offline.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/ic_menu_offline.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_vector_test.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_vector_test.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/person.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/person.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/ic_menu_compass.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/ic_menu_compass.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/moreinfo_arrow_pressed.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/moreinfo_arrow_pressed.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/center.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/center.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/zoom_out.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/zoom_out.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/design_ic_visibility.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/design_ic_visibility.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_dark.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/drawable/common_plus_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/drawable/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_icon_light.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/drawable/common_plus_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/drawable/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/ic_menu_mapmode.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/ic_menu_mapmode.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/btn_moreinfo.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/btn_moreinfo.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ic_voice_search_api_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/moreinfo_arrow.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/moreinfo_arrow.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/next.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/next.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/zoom_in.png",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/org.osmdroid/osmdroid-android/5.6.2/res/drawable/zoom_in.png"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
+        "source": "/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_item_background_holo_dark.xml"
+    }
+]

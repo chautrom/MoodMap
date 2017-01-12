@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="16"
+    density="hdpi"
+    format="7"
+    timestamp="40430453998536"
+    token="-6318373711868376241" >
+
+    <task
+        name="javac"
+        duration="345" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="54" />
+    <task
+        name="verifier"
+        duration="48" />
+
+    <artifact
+        location="/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="40430453998536" >
+        <artifact
+            location="/home/ejjelthi/Téléchargements/Mobile/MoodMap-mobile-app/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>
