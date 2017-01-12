@@ -22,7 +22,7 @@ class CriteriaController extends Controller
 			->findAll();
 		
 		
-		
+		/** creation d'un tableau permettant de stocker les donnees**/
 		$data = array();
 		foreach ($criterias as $item) {
 			$i = array(
