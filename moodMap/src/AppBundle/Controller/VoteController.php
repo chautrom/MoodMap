@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Vote;
+use AppBundle\Entity\Zone;
+use AppBundle\Entity\Datazone;
 use AppBundle\Utils\Utils;
 
 
@@ -15,14 +17,18 @@ class VoteController extends Controller
 	
 	/**
      * @Route("/createVote")
+	 * Si le vote existe avec un score différent, il est mis à jour. Rejet s'il existe avec le même score
      */
     public function createVoteAction()
     {
+
 		//DataBase tools
 		$entityManager 		= $this->getDoctrine()->getManager();
 		$userRepository 	= $entityManager->getRepository('AppBundle:User');
 		$voteRepository 	= $entityManager->getRepository('AppBundle:Vote');
 		$criteriaRepository = $entityManager->getRepository('AppBundle:Criteria');
+		$datazoneRepository	= $entityManager->getRepository('AppBundle:Datazone');
+		$zoneRepository		= $entityManager->getRepository('AppBundle:Zone');
 		
         //Messages d'erreur
 		$NO_USERID_ERROR_MESSAGE 		= 'Data required : userId';
@@ -31,14 +37,12 @@ class VoteController extends Controller
 		$WRONG_DATA_SCORE				= 'Data out of bounds : score';
 		$INEXISTANT_USER_MESSAGE		= 'Specified user does not exist';
 		$INEXISTANT_CRITERIA_MESSAGE	= 'Specified criteria does not exist';
-		$INEXISTANT_IDDATAZONE_MESSAGE 	= 'Specified id datazone does not exist';
+		$INEXISTANT_ZONE_MESSAGE 		= 'Specified zone does not exist';
+		$INEXISTANT_DATAZONE_MESSAGE 	= 'Specified datazone does not exist';
 		$DUPPLICATE_VOTE_MESSAGE		= 'Vote already exists';
 		
 		//Récupération des données de la requête HTTP
-		$inputData = json_decode($this->get("request")->getContent(), true);
-		//BOUCHON A SUPPRIMER APRES IMPLEMENTATION COMPLETE
-		$idDataZone = 1;
-		
+		$inputData = json_decode($this->get("request")->getContent(), true);		
 		//Contrôle des données en entrée
 		if(!isset($inputData['userId'])){
 			return VoteController::generateErrorResponse($NO_USERID_ERROR_MESSAGE);
@@ -62,35 +66,70 @@ class VoteController extends Controller
 		//Existence de l'utilisateur
 		
 		$user = $userRepository->findOneBy(array('id' => $inputData['userId']));
-		var_dump($user);
+		//var_dump($user);
 		if (!$user) {
 			return VoteController::generateErrorResponse($INEXISTANT_USER_MESSAGE);
 		}
 		
 		//Existence du critère		
 		$criteria = $criteriaRepository->findOneBy(array('id' => $inputData['idCriteria']));
-		var_dump($criteria);
+		//var_dump($criteria);
 		if (!$criteria) {
 			return VoteController::generateErrorResponse($INEXISTANT_CRITERIA_MESSAGE);
 		}
 		
-		//Existence de la dataZone
-		//IMPLEMENTER LA REQUETE DES QUE POSSIBLE
-		if (!isset($idDataZone)) {
-			return VoteController::generateErrorResponse($INEXISTANT_IDDATAZONE_MESSAGE);
+		//Existence de la zone
+		$zone = $zoneRepository->findOneBy(array('x' => $inputData['x'], 'y' => $inputData['y']));
+		//var_dump($zone);
+		if (!isset($zone)) {
+			//Creation de la zone
+			$zone = new Zone();
+			$zone->setName("CreatedZone");	
+			$zone->setX($inputData['x']);
+			$zone->setY($inputData['y']);	
+			$zone->setR(0);	
+			
+			$entityManager->persist($zone);
+			$res = $entityManager->flush();
+			
+			//Récupération de l'identifiant de la zone créée
+			$zone = $zoneRepository->findOneBy(array('x' => $inputData['x'], 'y' => $inputData['y']));
+			
+			//Creation de
+			$datazone = new Datazone();
+			$datazone->setIdZone($zone->getId());
+			$datazone->setIdCriteria($inputData['idCriteria']);
+			$datazone->setScore(0);
+			
+			$entityManager->persist($datazone);
+			$res = $entityManager->flush();
 		}
-		
+		//Existence de la datazone
+		$datazone = $datazoneRepository->findOneBy(array('idZone' => $zone->getId(), 'idCriteria' => $inputData['idCriteria']));
+		//var_dump($datazone);
+		if (!isset($datazone)) {
+			//Creation de la datazone (ne devrait pas passer par ici)
+			$datazone = new Datazone();
+			$datazone->setIdZone($zone->getId());
+			$datazone->setIdCriteria($inputData['idCriteria']);
+			$datazone->setScore($inputData['score']);
+			
+			$entityManager->persist($datazone);
+			$res = $entityManager->flush();
+		}	
 		//Verifier qu'un enregistrement identique (sauf score) n'existe pas déjà dans la table vote
 		$vote="";
-		$vote = $voteRepository->findOneBy(array('idUser' => $inputData['userId'],'idCriteria' => $inputData['idCriteria'],'idDatazone' => $idDataZone));
-		var_dump($vote);
+		$vote = $voteRepository->findOneBy(array('idUser' => $inputData['userId'],'idCriteria' => $inputData['idCriteria'],'idDatazone' => $datazone->getId()));
+		//var_dump($vote);
 		if (isset($vote)) {
 			if($vote->getScore() != $inputData['score'])
 			{
 				//Mise à jour du vote sur la zone et le critère donné s'il existe avec un score différent
 				$vote->setScore($inputData['score']);
 				$entityManager->flush();
-				return new Response('{"erreur":false,"content":' . json_encode($vote) . ', "message":"Vote existed for input user, criteria and data zone: data updated"}');
+				$jsonReturnObject = '{"id":' . $vote->getId() . ',"idUser":' . $vote->getIdUser() . ',"idCriteria":' . $vote->getIdCriteria() . ',"idDatazone":' . $vote->getIdDatazone() . ',"score":' . $vote->getScore() . '}';
+				//Reponse par défaut
+				return new Response('{"erreur":false,"content-type":"Vote","content":"' . $jsonReturnObject . '"}');
 			}
 			//Si le vote existe avec le même score, erreur
 			return VoteController::generateErrorResponse($DUPPLICATE_VOTE_MESSAGE);
@@ -100,14 +139,33 @@ class VoteController extends Controller
 		$vote = new Vote();
 		$vote->setIdUser($inputData['userId']);
 		$vote->setIdCriteria($inputData['idCriteria']);
-		$vote->setIdDataZone($idDataZone);
+		$vote->setIdDataZone($datazone->getId());
 		$vote->setScore($inputData['score']);
 		
 		$entityManager->persist($vote);
 		$res = $entityManager->flush();
 		//Mise à jour du score moyen de la dataZone
-		var_dump($res);
-		$jsonResponseMessage =  '{"erreur":false,"message":"Everything was fine"}';
+		//Récupération de tous les votes liées à la zone
+		$allVotes = $voteRepository->findBy(array('idDatazone' => $vote->getIdDatazone(), 'idCriteria' => $vote->getIdCriteria()));
+		//var_dump($allVotes);
+		
+		//calcul de la moyenne
+		$moy = 0;
+		foreach($allVotes as $aVote){
+			$moy += $aVote->getScore();
+		}
+		$moy = $moy/count($allVotes);
+		
+		//Mise à jour de la datazone
+		$datazone->setScore($moy);
+		$entityManager->flush();
+		
+		
+		//Récupération du vote précédemment créé pour retour positif
+		$vote = $voteRepository->findOneBy(array('idUser' => $inputData['userId'],'idCriteria' => $inputData['idCriteria'],'idDatazone' => $datazone->getId()));
+		$jsonReturnObject = '{"id":' . $vote->getId() . ',"idUser":' . $vote->getIdUser() . ',"idCriteria":' . $vote->getIdCriteria() . ',"idDatazone":' . $vote->getIdDatazone() . ',"score":' . $vote->getScore() . '}';
+		//Reponse par défaut
+		$jsonResponseMessage =  '{"erreur":false,"content-type":"Vote","content":"' . $jsonReturnObject . '"}';
 		return new Response($jsonResponseMessage);
     }
 	
@@ -126,26 +184,9 @@ class VoteController extends Controller
      */
     public function getListeVotesAction()
     {
-		
-        $users = $this->getDoctrine()
-			->getRepository('AppBundle:Vote')
-			->findAll();
-		
-		//echo print_r($users, true);
-		
-		$data = array();
-		/*foreach ($users as $item) {
-			$i = array(
-				'id' => $item->getId(),
-				'username' => $item->getUsername(),
-				'email' => $item->getEmail(),
-				'activated' => $item->getActivated()
-			);
-
-			array_push($data, $i);
-		}*/
-		
-		return new Response(json_encode($data));
+		//A NE PAS APPELER
+		$jsonResponse =  '{"erreur":false,"content-type":"Text","message":"This method has not yet been implemented: no treatment was performed."}';
+		return new Response($jsonResponse);
     }
 	
 	
