@@ -215,7 +215,7 @@ class VoteController extends Controller
 			return VoteController::generateErrorResponse($INEXISTANT_USER_MESSAGE);
 		}
 		
-		$allVotes = $entityManager->createQuery('SELECT v.id, v.score, z.x, z.y FROM AppBundle:Vote v, AppBundle:Datazone d, AppBundle:Zone z WHERE v.idUser =' . $inputData['userId'] . 'AND v.idDatazone = d.id AND d.idZone = z.id')->getResult();
+		$allVotes = $entityManager->createQuery('SELECT v.id as ID, c.id as ID_CRITERE,c.name as NAME, v.score as SCORE, z.x as LONGITUDE, z.y AS LATITUDE FROM AppBundle:Vote v, AppBundle:Datazone d, AppBundle:Zone z, AppBundle:Criteria c WHERE v.idUser =' . $inputData['userId'] . 'AND v.idDatazone = d.id AND d.idZone = z.id AND c.id = d.idCriteria')->getResult();
 		
 		$jsonResponseMessage =  '{"erreur":false,"content-type": "Liste de Vote","content":' . json_encode($allVotes) . '}';
 		return new Response($jsonResponseMessage);
