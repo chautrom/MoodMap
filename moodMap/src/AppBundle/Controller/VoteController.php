@@ -214,20 +214,26 @@ class VoteController extends Controller
 		if(!isset($inputData['userId'])){
 			return VoteController::generateErrorResponse($NO_USERID_ERROR_MESSAGE);
 		}
-		if(!isset($inputData['x']) or !isset($inputData['y'])){
-			return VoteController::generateErrorResponse($NO_COORDINATES_MESSAGE);
+
+		$allVotes = $voteRepository->findBy(array('idUser' => $inputData['userId']));
+
+		$data = array();
+		foreach ($allVotes as $vote) {
+			$datazone = $datazoneRepository->findBy(array('id' => $vote->getIdDatazone()));
+			$zone = $datazoneRepository->findBy(array('id' => $datazone[0]->getIdZone()));
+			
+			$res = array(
+				'x' => $zone[0]->getX(),
+				'y' => $zone[0]->getY(),
+				'score' => $vote->getScore(),
+				'idCriteria' => $vote->getIdCriteria()
+			);
+			array_push($data, $res);
 		}
-		if(!isset($inputData['idCriteria'])){
-			return VoteController::generateErrorResponse($NO_CRITERA_MESSAGE);
-		}
-		if(!isset($inputData['score'])){
-			return VoteController::generateErrorResponse($NO_SCORE_MESSAGE);
-		}
-		else{
-			if(!is_numeric($inputData['score'])	 or $inputData['score'] < 0 or $inputData['score'] > 5){
-				return VoteController::generateErrorResponse($WRONG_DATA_SCORE);
-			}
-		}
+		
+		
+		$jsonResponseMessage =  '{"erreur":false,"content-type": "List de Vote","content":' . json_encode($data) . '}';
+		return new Response($jsonResponseMessage);
     }
 	
 	
