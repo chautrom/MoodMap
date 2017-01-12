@@ -24,4 +24,10 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string-array name="critère_array">
+        <item>Verdure</item>
+        <item>Bruit</item>
+    </string-array>
+
 </resources>

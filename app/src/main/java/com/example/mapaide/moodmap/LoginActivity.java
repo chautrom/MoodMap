@@ -436,12 +436,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         return sb.toString();
     }
     public static String POST(String string_url, Compte compte){
+        StringBuffer response = new StringBuffer();
 
+        BufferedInputStream bis = null;
 
-        String result = "";
         try {
 
-            URL obj = new URL(string_url);
+            URL obj = new URL(string_url+"/createUser");
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
             con.setRequestMethod("POST");
@@ -450,9 +451,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
             JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("username", compte.getIdentifiant());
+            jsonObject.accumulate("name", compte.getIdentifiant());
+            jsonObject.accumulate("hashPassword", compte.getMotDePasse());
             jsonObject.accumulate("email", compte.getEmail());
-            jsonObject.accumulate("password", compte.getMotDePasse());
+
 
             con.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
@@ -463,24 +465,23 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             int responseCode = con.getResponseCode();
             if(responseCode==201 || responseCode==200)
             {
+                BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String inputLine;
+
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
 
             }
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
 
         } catch (Exception e) {
             Log.d("InputStream", e.getLocalizedMessage());
         }
 
         // 11. return result
-        return result;
+        return response.toString();
     }
 
     /**
@@ -507,12 +508,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             compte.setEmail(mEmail);
             compte.setIdentifiant(mIdentifiant);
             compte.setMotDePasse(mPassword);
-            try {
-                return Get(urls[0]);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return "tatak";
+            return POST(urls[0],compte);
+
         }
 
             // TODO: register the new account here.
