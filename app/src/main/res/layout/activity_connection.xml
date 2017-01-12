@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mapaide.moodmap.ConnectionActivity"
+    android:background="@mipmap/background">
+
+    <ImageView
+        android:paddingTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/smiley"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
+    <LinearLayout
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Identifiant"
+            android:textColor="@color/white"
+            android:id="@+id/identifiantC"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:id="@+id/idText"
+            android:background="@drawable/rounded_button"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Mot de passe"
+            android:textColor="@color/white"
+            android:id="@+id/mot_de_passe"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/passwordText"
+            android:background="@drawable/rounded_button"
+            android:layout_gravity="center_horizontal" />
+
+        <RelativeLayout
+            android:layout_margin="2dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+            <CheckBox
+                android:shadowColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Rester connecté"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/rest_cntTextView"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Connection"
+            android:textColor="@color/white"
+            android:background="@color/transparent"
+            android:drawableLeft="@drawable/next"
+            android:textAllCaps="false"
+            android:id="@+id/connection_button"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Se connecter avec google"
+            android:textColor="@color/white"
+            android:background="@drawable/edge_button"
+            android:drawableLeft="@drawable/common_google_signin_btn_icon_light_pressed"
+            android:textAllCaps="false"
+            android:id="@+id/conect_ggle_button"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Créer un compte"
+            android:textColor="@color/white"
+            android:background="@color/transparent"
+            android:textAllCaps="false"
+            android:id="@+id/nouveau_compte_button"
+            android:layout_gravity="center_horizontal"
+            android:onClick="startCreationCompteActivity"/>
+    </LinearLayout>
+</RelativeLayout>

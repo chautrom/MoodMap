@@ -1,8 +1,15 @@
 package com.example.mapaide.moodmap;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -17,18 +24,24 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.views.overlay.FolderOverlay;
+import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
 
-public class TestMapActivity extends AppCompatActivity {
+public class TestMapActivity extends AppCompatActivity implements LocationListener {
 
     MapView map;
     RoadManager roadManager;
     ArrayList<GeoPoint> waypoints;
+    GeoPoint currentLocation;
+    LocationManager locationManager;
+    Marker startMarker;
+    IMapController mapController;
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,21 +56,37 @@ public class TestMapActivity extends AppCompatActivity {
 
         GeoPoint startPoint = new GeoPoint(49.1817, -0.3470);
 
-        IMapController mapController = map.getController();
-        mapController.setZoom(12);
-        mapController.setCenter(startPoint);
-/*
-        Marker startMarker = new Marker(map);
-        startMarker.setPosition(startPoint);
+        mapController = map.getController();
+        mapController.setZoom(20);
+        //**************************************************************
+        if ( ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
+            ActivityCompat.requestPermissions( this, new String[] {  android.Manifest.permission.ACCESS_COARSE_LOCATION  }, 11 );
+        }
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if( location != null ) {
+            currentLocation = new GeoPoint(location.getLatitude(), location.getLongitude());
+        }
+
+        //mapController.setCenter(startPoint);
+
+        startMarker = new Marker(map);
+        //startMarker.setPosition(startPoint);
         startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         startMarker.setDraggable(true);
         map.getOverlays().add(startMarker);
-*/
+
+        /*
         GpsMyLocationProvider gpsLocationProvider = new GpsMyLocationProvider(this);
+        gpsLocationProvider.setLocationUpdateMinTime(1000);
+        gpsLocationProvider.setLocationUpdateMinDistance(2.0f);
         MyLocationNewOverlay myLocationOverlay = new MyLocationNewOverlay(gpsLocationProvider, map);
-        map.getOverlays().add(myLocationOverlay);
-        myLocationOverlay.enableMyLocation();
+        myLocationOverlay.enableMyLocation(gpsLocationProvider);
         myLocationOverlay.enableFollowLocation();
+        map.getOverlays().add(myLocationOverlay);
+        map.invalidate();
+        */
 /*
         roadManager = new OSRMRoadManager(this);
         waypoints = new ArrayList<GeoPoint>();
@@ -107,5 +136,27 @@ public class TestMapActivity extends AppCompatActivity {
         //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //Configuration.getInstance().save(this, prefs);
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        currentLocation = new GeoPoint(location);
+        startMarker.setPosition(currentLocation);
+        mapController.setCenter(currentLocation);
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
     }
 }

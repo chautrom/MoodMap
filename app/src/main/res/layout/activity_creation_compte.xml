@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context="com.example.mapaide.moodmap.CreationCompteActivity"
+    android:background="@mipmap/background">
+
+    <LinearLayout
+        android:paddingBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:src="@drawable/smiley"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Identifiant"
+            android:textColor="@color/white"
+            android:id="@+id/identifiantCC"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:id="@+id/idCText"
+            android:background="@drawable/rounded_button"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Adresse Mail"
+            android:textColor="@color/white"
+            android:id="@+id/adMailCC"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:id="@+id/adMailCText"
+            android:background="@drawable/rounded_button"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Mot de passe"
+            android:textColor="@color/white"
+            android:id="@+id/mot_de_passeCC"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/passwordTextCC"
+            android:background="@drawable/rounded_button"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Confirmer mot de passe"
+            android:textColor="@color/white"
+            android:id="@+id/conf_mdpCC"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/conf_mdpTextCC"
+            android:background="@drawable/rounded_button"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:layout_margin="2dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+            <CheckBox
+                android:id="@+id/checkBoxCC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_alignLeft="@id/checkBoxCC"
+                android:layout_margin="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Accepter les conditions d'utilisation"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/conditionsTextView"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Créer"
+            android:textColor="@color/white"
+            android:background="@drawable/edge_button"
+            android:textAllCaps="false"
+            android:id="@+id/conect_ggle_button"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</RelativeLayout>
