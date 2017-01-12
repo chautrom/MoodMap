@@ -17,23 +17,22 @@ class DatazoneController extends Controller
     public function getListeDatazonesAction()
     {
 		
-        $users = $this->getDoctrine()
+        $datazones = $this->getDoctrine()
 			->getRepository('AppBundle:Datazone')
 			->findAll();
 		
-		//echo print_r($users, true);
 		
 		$data = array();
-		/*foreach ($users as $item) {
+		foreach ($datazones as $item) {
 			$i = array(
 				'id' => $item->getId(),
-				'username' => $item->getUsername(),
-				'email' => $item->getEmail(),
-				'activated' => $item->getActivated()
+				'score' => $item->getScore(),
+				'idZone' => $item->getIdZone(),
+				'idCriteria' => $item->getIdCriteria()
 			);
 
 			array_push($data, $i);
-		}*/
+		}
 		
 		return new Response(json_encode($data));
     }
