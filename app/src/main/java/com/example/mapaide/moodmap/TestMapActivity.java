@@ -89,6 +89,18 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         startMarker.setDraggable(true);
         map.getOverlays().add(startMarker);
+		
+		colors = new TabCouleurs();
+        GeoPoint test0 = new GeoPoint(49.1856, -0.3646);
+        drawCircle(test0, colors.couleurs[0][4], 10.0f);
+        map.invalidate();
+
+        GeoPoint test1 = new GeoPoint(49.18378, -0.36008);
+        drawCircle(test1, Color.YELLOW, 10.0f);
+        map.invalidate();
+
+        drawCircle(currentLocation, colors.couleurs[1][4], 10.0f);
+        map.invalidate();
 
         /*
         GpsMyLocationProvider gpsLocationProvider = new GpsMyLocationProvider(this);
@@ -233,5 +245,15 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
     @Override
     public void onProviderDisabled(String provider) {
 
+    }
+	
+	public void drawCircle(GeoPoint position, int color, float rayon){
+        Polygon overlay = new Polygon(this);
+        overlay.setFillColor(color);
+        overlay.setStrokeColor(color);
+        overlay.setStrokeWidth(rayon);
+        overlay.setPoints(Polygon.pointsAsCircle(position, rayon));
+        map.getOverlays().add(overlay);
+        //map.invalidate();
     }
 }
