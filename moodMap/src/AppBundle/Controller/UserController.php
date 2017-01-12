@@ -109,7 +109,7 @@ class UserController extends Controller
 			array_push($data, $i);
 		}
 		
-		$jsonResponseMessage =  '{"erreur":false,"content-type": "User","content":' . json_encode($data) . '}';
+		$jsonResponseMessage =  '{"erreur":false,"content-type": "List de User","content":' . json_encode($data) . '}';
 		return new Response($jsonResponseMessage);
     }
   

@@ -189,9 +189,45 @@ class VoteController extends Controller
      */
     public function getAllVotesFromUserAction()
     {
-        return $this->render('AppBundle:Vote:get_all_votes_from_user.html.php', array(
-            // ...
-        ));
+		//DataBase tools
+		$entityManager 		= $this->getDoctrine()->getManager();
+		$userRepository 	= $entityManager->getRepository('AppBundle:User');
+		$voteRepository 	= $entityManager->getRepository('AppBundle:Vote');
+		$criteriaRepository = $entityManager->getRepository('AppBundle:Criteria');
+		$datazoneRepository	= $entityManager->getRepository('AppBundle:Datazone');
+		$zoneRepository		= $entityManager->getRepository('AppBundle:Zone');
+		
+        //Messages d'erreur
+		$NO_USERID_ERROR_MESSAGE 		= '"Data required : userId"';
+		$NO_COORDINATES_MESSAGE 		= '"Data required : coordinates x & y"';
+		$NO_CRITERA_MESSAGE				= '"Data required : idCriteria"';
+		$WRONG_DATA_SCORE				= '"Data out of bounds : score"';
+		$INEXISTANT_USER_MESSAGE		= '"Specified user does not exist"';
+		$INEXISTANT_CRITERIA_MESSAGE	= '"Specified criteria does not exist"';
+		$INEXISTANT_ZONE_MESSAGE 		= '"Specified zone does not exist"';
+		$INEXISTANT_DATAZONE_MESSAGE 	= '"Specified datazone does not exist"';
+		$DUPPLICATE_VOTE_MESSAGE		= '"Vote already exists"';
+		
+		//Récupération des données de la requête HTTP
+		$inputData = json_decode($this->get("request")->getContent(), true);		
+		//Contrôle des données en entrée
+		if(!isset($inputData['userId'])){
+			return VoteController::generateErrorResponse($NO_USERID_ERROR_MESSAGE);
+		}
+		if(!isset($inputData['x']) or !isset($inputData['y'])){
+			return VoteController::generateErrorResponse($NO_COORDINATES_MESSAGE);
+		}
+		if(!isset($inputData['idCriteria'])){
+			return VoteController::generateErrorResponse($NO_CRITERA_MESSAGE);
+		}
+		if(!isset($inputData['score'])){
+			return VoteController::generateErrorResponse($NO_SCORE_MESSAGE);
+		}
+		else{
+			if(!is_numeric($inputData['score'])	 or $inputData['score'] < 0 or $inputData['score'] > 5){
+				return VoteController::generateErrorResponse($WRONG_DATA_SCORE);
+			}
+		}
     }
 	
 	
