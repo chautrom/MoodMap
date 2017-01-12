@@ -13,11 +13,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.json.JSONObject;
-import org.osmdroid.util.GeoPoint;
+
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.IOException;
+
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -95,11 +95,10 @@ public class EvaluationActivity extends AppCompatActivity implements AdapterView
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.accumulate("userId",1);
-            jsonObject.accumulate("x", 12.2);
-            jsonObject.accumulate("y", 14.4);
-            jsonObject.accumulate("idCriteria", 1);
+            jsonObject.accumulate("x",28.2331);
+            jsonObject.accumulate("y",19.4321);
+            jsonObject.accumulate("idCriteria",1);
             jsonObject.accumulate("score", eval.getScore());
-           // jsonObject.accumulate("password", compte.getMotDePasse());
 
             con.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());

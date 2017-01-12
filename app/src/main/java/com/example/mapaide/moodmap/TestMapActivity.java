@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
@@ -14,6 +15,9 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.osmdroid.api.IMapController;
 import org.osmdroid.bonuspack.routing.OSRMRoadManager;
 import org.osmdroid.bonuspack.routing.Road;
@@ -31,6 +35,12 @@ import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class TestMapActivity extends AppCompatActivity implements LocationListener {
@@ -42,6 +52,7 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
     LocationManager locationManager;
     Marker startMarker;
     IMapController mapController;
+    private GetInfoZoneTask infoZoneTask = null;
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +81,8 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         }
 
         //mapController.setCenter(startPoint);
+        infoZoneTask = new GetInfoZoneTask();
+        infoZoneTask.execute(getString(R.string.url));
 
         startMarker = new Marker(map);
         //startMarker.setPosition(startPoint);
@@ -126,6 +139,68 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         }).start();
 
 */
+
+    }
+    public String GET(String sAddress) throws IOException, JSONException {
+        StringBuilder sb = new StringBuilder();
+
+        BufferedInputStream bis = null;
+        URL url = new URL(sAddress+"/getInfoZones");
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.connect();
+        int responseCode;
+
+        con.setConnectTimeout( 10000 );
+        con.setReadTimeout( 10000 );
+        responseCode = con.getResponseCode();
+
+        if ( responseCode == 200)
+        {
+            bis = new java.io.BufferedInputStream(con.getInputStream());
+            BufferedReader reader = new BufferedReader(new InputStreamReader(bis, "UTF-8"));
+            String line = null;
+
+            while ((line = reader.readLine()) != null)
+                sb.append(line);
+
+            bis.close();
+        }
+        return sb.toString();
+    }
+    public class GetInfoZoneTask extends AsyncTask<String, Void, String> {
+
+        GetInfoZoneTask() {
+
+        }
+
+        @Override
+        protected String doInBackground(String... urls) {
+            // TODO: attempt authentication against a network service.
+
+
+            try {
+                String infoZones = GET(urls[0]);
+                JSONObject json = new JSONObject(infoZones);
+                JSONArray content = new JSONArray(json.getString("content"));
+
+                int i = content.length();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return "tatak";
+        }
+
+        // TODO: register the new account here.
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            Toast.makeText(getBaseContext(), "Data Retrived!", Toast.LENGTH_LONG).show();
+        }
+
 
     }
 
