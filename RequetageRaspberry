@@ -1,0 +1,27 @@
+Acces Raspberry : 192.168.12.25:8000/...
+
+Requeter le serveur pour :
+
+¤ utilisateurs
+
+	- connexion d'un utilisateur
+	- création d'un utilisateur
+	- modification d'un utilisateur
+	- création de l'url de confirmation de mail (gestion du challenge)
+
+¤ zones
+
+	- liste des zones
+
+¤ datazones
+
+	- calcul de la note d'une zone sur les 3 criteres (recuperation des votes)
+	
+¤ criteres
+
+	-liste des criteres
+	
+¤ votes
+
+	- liste des votes d'un utilisateurs
+	- liste des votes sur une datazones

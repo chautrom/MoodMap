@@ -1,0 +1,36 @@
+
+create_user:
+    path:     /createUser
+    defaults: { _controller: AppBundle:UserController:createUser }
+
+get_liste_users:
+    path:     /getListeUsers
+    defaults: { _controller: AppBundle:UserController:getListeUsers }
+	
+get_liste_users:
+    path:     /getListeCriterias
+    defaults: { _controller: AppBundle:CriteriaController:getListeCriterias }
+	
+get_liste_users:
+    path:     /getListeDatazones
+    defaults: { _controller: AppBundle:DatazoneController:getListeDatazones }
+	
+get_liste_users:
+    path:     /getListeVotes
+    defaults: { _controller: AppBundle:VoteController:getListeVotes }
+	
+get_liste_users:
+    path:     /getListeZones
+    defaults: { _controller: AppBundle:Zone:getListeZones }
+	
+create_vote:
+    path:     /createVote
+    defaults: { _controller: AppBundle:VoteController:createVote }
+
+update_vote:
+    path:     /updateVote
+    defaults: { _controller: AppBundle:VoteController:updateVote }
+
+get_all_votes_from_user:
+    path:     /getAllVotesFromUser
+    defaults: { _controller: AppBundle:VoteController:getAllVotesFromUser }

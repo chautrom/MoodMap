@@ -1,0 +1,25 @@
+AppBundle\Entity\Zone:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ZoneRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '20'
+        x:
+            type: float
+            column: x
+        y:
+            type: float
+            column: y
+        r:
+            type: float
+            column: r
+        
+    lifecycleCallbacks: {  }
