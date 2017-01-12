@@ -36,7 +36,8 @@ class DatazoneController extends Controller
 		
 		
 		
-		return new Response(json_encode($data));
+		$jsonResponse = '{"erreur":false, "content-type":"List of Datazone", "content":"' . json_encode($data) . '"}';
+		return new Response($jsonResponse);
     }
 	
 	
@@ -65,18 +66,17 @@ class DatazoneController extends Controller
 		$data = array();
 		foreach ($datazones as $itemDatazone) {
 			$d = array(
-				'id' => $itemDatazone->getId(),
+				'idZone' => $itemDatazone->getIdZone(),
 				'score' => $itemDatazone->getScore(),
 				'idCriteria' => $itemDatazone->getIdCriteria()
 			);
-			
 			foreach ($zones as $itemZone){
 				$z = array(
 					'id' => $itemZone->getId(),
 					'x' => $itemZone->getX(),
 					'y' => $itemZone->getY(),
 				);
-				if($d['id'] == $z['id']){
+				if($d['idZone'] == $z['id']){
 					$res = array(
 						'x' => $itemZone->getX(),
 						'y' => $itemZone->getY(),
@@ -91,8 +91,8 @@ class DatazoneController extends Controller
 		};
 		
 		
-		
-		return new Response(json_encode($data));
+		$jsonResponse = '{"erreur":false, "content-type":"List of Datazone", "content":"' . json_encode($data) . '"}';
+		return new Response($jsonResponse);
     }
 
 }
