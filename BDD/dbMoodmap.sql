@@ -12,12 +12,12 @@ USE `moodmapDB` ;
 DROP TABLE IF EXISTS `moodmapDB`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `moodmapDB`.`user` (
-  `id` INT(11) NULL AUTO_INCREMENT,
-  `username` VARCHAR(16) NULL,
-  `email` VARCHAR(255) NULL,
-  `password` VARCHAR(32) NULL,
-  `activated` TINYINT(1) NULL,
-  `challenge` VARCHAR(45) NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(16) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(32) NOT NULL,
+  `activated` TINYINT(1) NOT NULL,
+  `challenge` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC));
@@ -45,10 +45,9 @@ DROP TABLE IF EXISTS `moodmapDB`.`zone` ;
 CREATE TABLE IF NOT EXISTS `moodmapDB`.`zone` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
-  `p1_x` INT(11) NULL,
-  `p1_y` INT(11) NOT NULL,
-  `p2_x` INT(11) NOT NULL,
-  `p2_y` INT(11) NOT NULL,
+  `x` FLOAT NOT NULL,
+  `y` FLOAT NOT NULL,
+  `r` FLOAT NOT NULL,
   PRIMARY KEY (`id`));
 
 
@@ -83,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `moodmapDB`.`datazone` (
 DROP TABLE IF EXISTS `moodmapDB`.`vote` ;
 
 CREATE TABLE IF NOT EXISTS `moodmapDB`.`vote` (
-  `id` INT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `id_user` INT(11) NOT NULL,
   `id_criteria` INT(11) NOT NULL,
   `id_datazone` INT(11) NOT NULL,

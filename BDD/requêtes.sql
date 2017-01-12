@@ -23,12 +23,12 @@ INSERT INTO criteria (name,iconpath)
 --
 -- zone
 --
-INSERT INTO zone (name,p1_x, p1_y, p2_x, p2_y)
-VALUES("zone1", 20, 20, 30, 30);
+INSERT INTO zone (name,x, y, r)
+VALUES("zone1", 20, 20, 30);
 
 
-INSERT INTO zone (name,p1_x, p1_y, p2_x, p2_y)
-VALUES("zone2", 40, 40, 45, 45);
+INSERT INTO zone (name,x, y, r )
+VALUES("zone2", 40, 40,30);
 
 --
 -- dataZone
@@ -42,10 +42,10 @@ INSERT INTO datazone (score,id_zone,id_criteria)
 --
 -- vote
 --
-INSERT INTO vote (id_user, id_criteria, id_datazone, score)
+INSERT INTO vote (id_user,id_criteria,id_datazone, score)
 VALUES(1, 1, 1,5);
 
-INSERT INTO vote (id_user, id_criteria, id_datazone, score)
+INSERT INTO vote (id_user,id_criteria,id_datazone, score)
 VALUES(1, 2, 2,6);
 
 --
