@@ -17,12 +17,13 @@ class UserController extends Controller
     {
 		//DataBase tools
 		$entityManager 				= $this->getDoctrine()->getManager();
-		$userRepository 			= $entityManager->getRepository('AppBundle:User');		
-        	//Messages d'erreur
+		$userRepository 			= $entityManager->getRepository('AppBundle:User');	
+		
+        //Messages d'erreur
 		$NO_USERNAME_ERROR_MESSAGE 		= 'Data required : username';
-		$NO_EMAIL_MESSAGE			= 'Data required : email';
-		$NO_HASH_PW_MESSAGE 			= 'Data required : password';
-		$USER_ALREADY_EXISTS_USERNAME 		= 'User already exists for this username';
+		$NO_EMAIL_MESSAGE				= 'Data required : email';
+		$NO_PASSWORD_MESSAGE 			= 'Data required : password';
+		$USER_ALREADY_EXISTS_USERNAME 	= 'User already exists for this username';
 		$USER_ALREADY_EXISTS_EMAIL 		= 'User already exists for this email';
 		
 		//Récupération des données de la requête HTTP
@@ -32,16 +33,13 @@ class UserController extends Controller
 		
 		//Contrôle des données en entrée
 		if(!isset($inputData['name'])){
-			$jsonErrorMessage =  '{"status":"success","message":'.$NO_USERNAME_ERROR_MESSAGE. '}';
-			return new Response($jsonErrorMessage);
+			return UserController::generateErrorResponse($NO_USERNAME_ERROR_MESSAGE);
 		}
 		if(!isset($email)){
-			$jsonErrorMessage =  '{"status":"success","message":'.$NO_EMAIL_MESSAGE. '}';
-			return new Response($jsonErrorMessage);
+			return UserController::generateErrorResponse($NO_EMAIL_MESSAGE);
 		}
 		if(!isset($inputData['password'])){
-			$jsonErrorMessage =  '{"status":"success","message":'.$NO_HASH_PW_MESSAGE . '}';
-			return new Response($jsonErrorMessage);
+			return UserController::generateErrorResponse($NO_PASSWORD_MESSAGE);
 		}
 		
 		
@@ -49,17 +47,13 @@ class UserController extends Controller
 		//Non existence de l'utilisateur par username
 		$user = $userRepository->findOneBy(array('username' => $inputData['name']));
 		if ($user) {
-			$jsonErrorMessage =  '{"status":"success","message":'.$USER_ALREADY_EXISTS_USERNAME . '}';
-			return new Response($jsonErrorMessage);
-			//return UserController::generateErrorResponse($USER_ALREADY_EXISTS_USERNAME. ': ' . $inputData['name']);
+			return UserController::generateErrorResponse($USER_ALREADY_EXISTS_USERNAME . ': '. $inputData['name']);
 		}
 		
 		//Non existence de l'utilisateur par email
 		$user = $userRepository->findOneBy(array('email' => $email));
 		if ($user) {
-			$jsonErrorMessage =  '{"status":"success","message":'.$USER_ALREADY_EXISTS_EMAIL. '}';
-			return new Response($jsonErrorMessage);
-			//return UserController::generateErrorResponse($USER_ALREADY_EXISTS_EMAIL . ': ' . $email);
+			return UserController::generateErrorResponse($USER_ALREADY_EXISTS_EMAIL . ': '. $inputData['email']);
 		}			
 		//Génération du challenge aléatoire
 		$randomChallenge = random_bytes(16);
@@ -74,8 +68,6 @@ class UserController extends Controller
 		
 		$entityManager->persist($user);
 		$res = $entityManager->flush();
-		$jsonErrorMessage =  '{"status":"success"}';
-		return new Response($jsonErrorMessage);
 
 		/* send message to user*/
 
@@ -90,8 +82,8 @@ class UserController extends Controller
         //envoi du message
         $result = $this->get('mailer')->send($message);		*/
 
-	/*$jsonResponseMessage =  '{"status":false,"content-type": "User","content": "{"id":"'. $user->getId().'","username":"'.$user->getUsername() .'"}"}';
-	return new Response($jsonResponseMessage);*/
+		$jsonResponseMessage =  '{"erreur":false,"content-type": "User","content": "{"id":"'. $user->getId().'","username":"'.$user->getUsername() .'"}"}';
+		return new Response($jsonResponseMessage);
     }
 
      /**
@@ -121,7 +113,7 @@ class UserController extends Controller
     }
 
 	public static function generateErrorResponse($message){
-		$jsonErrorMessage =  '{"status":true,"message":'. $message . '}';
+		$jsonErrorMessage =  '{"erreur":true,"message":"'. $message . '"}';
 		return new Response($jsonErrorMessage);
 	}
   
@@ -134,24 +126,26 @@ class UserController extends Controller
 	$inputData = json_decode($this->get("request")->getContent(), true);
 	$entityManager 		= $this->getDoctrine()->getManager();
 	$userRepository 	= $entityManager->getRepository('AppBundle:User');
-	$NO_USERNAME_ERROR_MESSAGE = 'Data required : username';
-	$NO_HASH_PW_MESSAGE 	   = 'Data required : password';
-
+	
+	//Messages d'erreur
+	$NO_USERNAME_ERROR_MESSAGE 		= 'Data required : username';
+	$NO_EMAIL_MESSAGE				= 'Data required : email';
+	$NO_PASSWORD_MESSAGE 			= 'Data required : password';
+	$INCORRECT_PASSWORD				= 'Incorrect password';
+	$USER_DOESNT_EXIST_MESSAGE		= 'Specified user does not exist';	
+	
 	//Contrôle des données en entrée
 	if(!isset($inputData['name'])){
-	  	$jsonResponseMessage =  '{"status": "failure", "message":"insert your username"}';
-		return new Response($jsonResponseMessage);
+		return UserController::generateErrorResponse($NO_USERNAME_ERROR_MESSAGE);
 	}
 	if(!isset($inputData['password'])){
-	  	$jsonResponseMessage =  '{"status": "failure", "message":"insert your password"}';
-		return new Response($jsonResponseMessage);
+		return UserController::generateErrorResponse($NO_PASSWORD_MESSAGE);
 	}
 
 	$user = $userRepository->findOneBy(array('username' => $inputData['name']));	
 	if( !$user )
 	{
-		$jsonResponseMessage =  '{"status": "failure", "message":"user not found"}';
-		return new Response($jsonResponseMessage);
+		return UserController::generateErrorResponse($USER_DOESNT_EXIST_MESSAGE);
 	}
         /*if( !$user->getActivated() )
 	{
@@ -164,12 +158,12 @@ class UserController extends Controller
 		$user->setActivated(true);
 		$entityManager->persist($user);
 		$res = $entityManager->flush();
-		$jsonResponseMessage =  '{"status": "success"}';
+		$jsonResponseMessage =  '{"erreur":false,"content-type": "User","content":{"id":"'. $user->getId().'","username":"'.$user->getUsername() .'"}}';
 		return new Response($jsonResponseMessage);
 	}
 
-	$jsonResponseMessage =  '{"status": "failure", "message":"password incorrect"}';
-	return new Response($jsonResponseMessage);	
+	
+	return UserController::generateErrorResponse($INCORRECT_PASSWORD);	
   }
 	
 }

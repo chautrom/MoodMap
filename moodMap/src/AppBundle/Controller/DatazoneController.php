@@ -36,7 +36,7 @@ class DatazoneController extends Controller
 		
 		
 		
-		$jsonResponse = '{"erreur":false, "content-type":"List of Datazone", "content":"' . json_encode($data) . '"}';
+		$jsonResponse = '{"erreur":false, "content-type":"List of Datazone", "content":' . json_encode($data) . '}';
 		return new Response($jsonResponse);
     }
 	
@@ -91,7 +91,7 @@ class DatazoneController extends Controller
 		};
 		
 		
-		$jsonResponse = '{"erreur":false, "content-type":"List of Datazone", "content":"' . json_encode($data) . '"}';
+		$jsonResponse = '{"erreur":false, "content-type":"List of Datazone", "content":' . json_encode($data) . '}';
 		return new Response($jsonResponse);
     }
 
