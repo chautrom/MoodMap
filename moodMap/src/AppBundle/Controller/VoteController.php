@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Vote;
+use AppBundle\Utils\Utils;
+
 
 class VoteController extends Controller
 {
@@ -39,20 +41,20 @@ class VoteController extends Controller
 		
 		//Contrôle des données en entrée
 		if(!isset($inputData['userId'])){
-			return generateErrorResponse($NO_USERID_ERROR_MESSAGE);
+			return VoteController::generateErrorResponse($NO_USERID_ERROR_MESSAGE);
 		}
 		if(!isset($inputData['x']) or !isset($inputData['y'])){
-			return generateErrorResponse($NO_COORDINATES_MESSAGE);
+			return VoteController::generateErrorResponse($NO_COORDINATES_MESSAGE);
 		}
 		if(!isset($inputData['idCriteria'])){
-			return generateErrorResponse($NO_CRITERA_MESSAGE);
+			return VoteController::generateErrorResponse($NO_CRITERA_MESSAGE);
 		}
 		if(!isset($inputData['score'])){
-			return generateErrorResponse($NO_SCORE_MESSAGE);
+			return VoteController::generateErrorResponse($NO_SCORE_MESSAGE);
 		}
 		else{
 			if(!is_numeric($inputData['score'])	 or $inputData['score'] < 0 or $inputData['score'] > 5){
-				return generateErrorResponse($WRONG_DATA_SCORE);
+				return VoteController::generateErrorResponse($WRONG_DATA_SCORE);
 			}
 		}
 		
@@ -62,20 +64,20 @@ class VoteController extends Controller
 		$user = $userRepository->findOneBy(array('id' => $inputData['userId']));
 		var_dump($user);
 		if (!$user) {
-			return generateErrorResponse($INEXISTANT_USER_MESSAGE);
+			return VoteController::generateErrorResponse($INEXISTANT_USER_MESSAGE);
 		}
 		
 		//Existence du critère		
 		$criteria = $criteriaRepository->findOneBy(array('id' => $inputData['idCriteria']));
 		var_dump($criteria);
 		if (!$criteria) {
-			return generateErrorResponse($INEXISTANT_CRITERIA_MESSAGE);
+			return VoteController::generateErrorResponse($INEXISTANT_CRITERIA_MESSAGE);
 		}
 		
 		//Existence de la dataZone
 		//IMPLEMENTER LA REQUETE DES QUE POSSIBLE
 		if (!isset($idDataZone)) {
-			return generateErrorResponse($INEXISTANT_IDDATAZONE_MESSAGE);
+			return VoteController::generateErrorResponse($INEXISTANT_IDDATAZONE_MESSAGE);
 		}
 		
 		//Verifier qu'un enregistrement identique (sauf score) n'existe pas déjà dans la table vote
@@ -91,7 +93,7 @@ class VoteController extends Controller
 				return new Response('{"erreur":false,"content":' . json_encode($vote) . ', "message":"Vote existed for input user, criteria and data zone: data updated"}');
 			}
 			//Si le vote existe avec le même score, erreur
-			return generateErrorResponse($DUPPLICATE_VOTE_MESSAGE);
+			return VoteController::generateErrorResponse($DUPPLICATE_VOTE_MESSAGE);
 		}
 		
 		//Insertion du Vote
@@ -156,12 +158,12 @@ class VoteController extends Controller
             // ...
         ));
     }
+	
+	
+	public static function generateErrorResponse($message){
+		$jsonErrorMessage =  '{"erreur":true,"message":'. $message . '}';
+		return new Response($jsonErrorMessage);
+	}
 
 
-}
-
-//A METTRE AILLEURS
-function generateErrorResponse($message){
-	$jsonErrorMessage =  '{"erreur":true,"message":'. $message . '}';
-	return new Response($jsonErrorMessage);
 }

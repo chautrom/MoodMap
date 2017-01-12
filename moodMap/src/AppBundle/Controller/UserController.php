@@ -23,6 +23,8 @@ class UserController extends Controller
 		$NO_USERNAME_ERROR_MESSAGE 		= 'Data required : username';
 		$NO_EMAIL_MESSAGE				= 'Data required : email';
 		$NO_HASH_PW_MESSAGE 			= 'Data required : hash password';
+		$USER_ALREADY_EXISTS_USERNAME 	= 'User already exists for this username';
+		$USER_ALREADY_EXISTS_EMAIL 		= 'User already exists for this email';
 		
 		//Récupération des données de la requête HTTP
 		$inputData = json_decode($this->get("request")->getContent(), true);
@@ -30,13 +32,13 @@ class UserController extends Controller
 		//Contrôle des données en entrée
 		var_dump($inputData);
 		if(!isset($inputData['name'])){
-			return generateErrorResponse($NO_USERNAME_ERROR_MESSAGE);
+			return UserController::generateErrorResponse($NO_USERNAME_ERROR_MESSAGE);
 		}
 		if(!isset($inputData['email'])){
-			return generateErrorResponse($NO_EMAIL_MESSAGE);
+			return UserController::generateErrorResponse($NO_EMAIL_MESSAGE);
 		}
 		if(!isset($inputData['hashPassword'])){
-			return generateErrorResponse($NO_HASH_PW_MESSAGE);
+			return UserController::generateErrorResponse($NO_HASH_PW_MESSAGE);
 		}
 		
 		
@@ -45,14 +47,14 @@ class UserController extends Controller
 		$user = $userRepository->findOneBy(array('username' => $inputData['name']));
 		var_dump($user);
 		if ($user) {
-			return generateErrorResponse($USER_ALREADY_EXISTS_USERNAME. ': ' . $inputData['name']);
+			return UserController::generateErrorResponse($USER_ALREADY_EXISTS_USERNAME. ': ' . $inputData['name']);
 		}
 		
 		//Non existence de l'utilisateur par email
 		$user = $userRepository->findOneBy(array('email' => $inputData['email']));
 		var_dump($user);
 		if ($user) {
-			return generateErrorResponse($USER_ALREADY_EXISTS_EMAIL . ': ' . $inputData['email']);
+			return UserController::generateErrorResponse($USER_ALREADY_EXISTS_EMAIL . ': ' . $inputData['email']);
 		}
 		
 		
@@ -80,7 +82,6 @@ class UserController extends Controller
      */
     public function getListeUsersAction()
     {
-		
         $users = $this->getDoctrine()
 			->getRepository('AppBundle:User')
 			->findAll();
@@ -102,4 +103,9 @@ class UserController extends Controller
 		return new Response(json_encode($data));
     }
 
+	public static function generateErrorResponse($message){
+		$jsonErrorMessage =  '{"erreur":true,"message":'. $message . '}';
+		return new Response($jsonErrorMessage);
+	}
+	
 }
