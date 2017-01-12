@@ -94,7 +94,6 @@ class VoteController extends Controller
 			
 			//Récupération de l'identifiant de la zone créée
 			$zone = $zoneRepository->findOneBy(array('x' => $inputData['x'], 'y' => $inputData['y']));
-			
 			//Creation de
 			$datazone = new Datazone();
 			$datazone->setIdZone($zone->getId());
