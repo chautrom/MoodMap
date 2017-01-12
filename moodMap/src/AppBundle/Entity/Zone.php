@@ -20,25 +20,19 @@ class Zone
     private $name;
 
     /**
-     * @var int
+     * @var float
      */
-    private $p1X;
+    private $x;
 
     /**
-     * @var int
+     * @var float
      */
-    private $p1Y;
+    private $y;
 
     /**
-     * @var int
+     * @var float
      */
-    private $p2X;
-
-    /**
-     * @var int
-     */
-    private $p2Y;
-
+    private $r;
 
     /**
      * Get id
@@ -74,94 +68,72 @@ class Zone
     }
 
     /**
-     * Set p1X
+     * Get x
      *
-     * @param float $p1X
+     * @return float 
+     */
+    public function getX()
+    {
+        return $this->x;
+    }
+
+    /**
+     * Set x
+     *
+     * @param float $x
      * @return Zone
      */
-    public function setP1X($p1X)
+    public function setX($X)
     {
-        $this->p1X = $p1X;
+        $this->x = $X;
 
         return $this;
     }
 
     /**
-     * Get p1X
+     * Get y
      *
      * @return float 
      */
-    public function getP1X()
+    public function getY()
     {
-        return $this->p1X;
+        return $this->y;
     }
 
     /**
-     * Set p1Y
+     * Set y
      *
-     * @param float $p1Y
+     * @param float $Y
      * @return Zone
      */
-    public function setP1Y($p1Y)
+    public function setY($Y)
     {
-        $this->p1Y = $p1Y;
+        $this->y = $Y;
 
         return $this;
     }
 
     /**
-     * Get p1Y
+     * Get r
      *
      * @return float 
      */
-    public function getP1Y()
+    public function getR()
     {
-        return $this->p1Y;
+        return $this->r;
     }
 
     /**
-     * Set p2X
+     * Set y
      *
-     * @param float $p2X
+     * @param float $R
      * @return Zone
      */
-    public function setP2X($p2X)
+    public function setR($R)
     {
-        $this->p2X = $p2X;
+        $this->r = $R;
 
         return $this;
     }
-
-    /**
-     * Get p2X
-     *
-     * @return float 
-     */
-    public function getP2X()
-    {
-        return $this->p2X;
-    }
-
-    /**
-     * Set p2Y
-     *
-     * @param float $p2Y
-     * @return Zone
-     */
-    public function setP2Y($p2Y)
-    {
-        $this->p2Y = $p2Y;
-
-        return $this;
-    }
-
-    /**
-     * Get p2Y
-     *
-     * @return float 
-     */
-    public function getP2Y()
-    {
-        return $this->p2Y;
-    }
+    
 }
