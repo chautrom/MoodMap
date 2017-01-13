@@ -136,6 +136,7 @@ class UserController extends Controller
 	$NO_PASSWORD_MESSAGE 			= 'Data required : password';
 	$INCORRECT_PASSWORD				= 'Incorrect password';
 	$USER_DOESNT_EXIST_MESSAGE		= 'Specified user does not exist';
+	$ACCOUNT_NOT_ACTIVE_MESSAGE		= 'Please activate your account first';
 
 	//Contrôle des données en entrée
 	if(!isset($inputData['name'])){
@@ -152,8 +153,7 @@ class UserController extends Controller
 	}
         if( !$user->getActivated() )
 	{
-		$jsonResponseMessage =  '{"status": "failure", "message":"Please activate your account first"}';
-		return new Response($jsonResponseMessage);
+		return UserController::generateErrorResponse($ACCOUNT_NOT_ACTIVE_MESSAGE);
 	}
 	
 	$HashPassword =  md5($inputData['password']);
