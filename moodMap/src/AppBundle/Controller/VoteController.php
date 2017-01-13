@@ -38,8 +38,6 @@ class VoteController extends Controller
 		$WRONG_DATA_SCORE				= 'Data out of bounds : score';
 		$INEXISTANT_USER_MESSAGE		= 'Specified user does not exist';
 		$INEXISTANT_CRITERIA_MESSAGE	= 'Specified criteria does not exist';
-		$INEXISTANT_ZONE_MESSAGE 		= 'Specified zone does not exist';
-		$INEXISTANT_DATAZONE_MESSAGE 	= 'Specified datazone does not exist';
 		$DUPPLICATE_VOTE_MESSAGE		= 'Vote already exists';
 		
 		//Récupération des données de la requête HTTP
