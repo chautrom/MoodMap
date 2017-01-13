@@ -14,6 +14,7 @@ Le RaspberryPi3 à besoins des différentes technologies suivantes pour fonction
  
 Les 4 premières technologies nous les avons installer avec la distribution Debian.
 Nous avons utiliser les paquets de la distribution debian pour faciliter la maintenabilité et l'installation.
+
 Néanmoins, pour la 5ème technologie "Symfony", il n'y avait pas de paquet Debian pour l'installer.
 Nous avons alors installer Composer sur le site officiel https://getcomposer.org/download/ afin de pouvoir gérer les dépendances de Symfony.
 Une fois cela fait, il suffit de cloner le projet avec git à la racine du serveur Apache2 /var/www/html/.
