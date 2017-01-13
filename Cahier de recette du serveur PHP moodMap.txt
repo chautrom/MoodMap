@@ -1,0 +1,360 @@
+Recette du serveur PHP - Moodmap
+
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+User controller
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Méthode : création d'un utilisateur
+URL : 192.168.12.25:8000/createUser
+Cas : Absence de données en entrée
+
+Données en entrée : 			{}
+
+Données attendues en sortie : 	{"erreur":true, "message":"Data required: username"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : username"}
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un utilisateur
+URL : 192.168.12.25:8000/createUser
+Cas : Uniquement le champ "name" présent en entrée
+
+Données en entrée :				{"name":"testUsername"}
+
+Données attendues en sortie : 	{"erreur":true, "message":"Data required: email"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : email"}
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un utilisateur
+URL : 192.168.12.25:8000/createUser
+Cas : Uniquement les champs "name" et "email" présent en entrée
+
+Données en entrée : 			{"name":"testUsername", "email":"emaildetestmoodmap@gmail.com"}
+
+Données attendues en sortie : 	{"erreur":true, "message":"Data required: password"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : password"}
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un utilisateur
+URL : 192.168.12.25:8000/createUser
+Cas : Les 3 champs attendus en entrée sans erreur.
+
+Données en entrée : 			{"name":"testUsername", "email":"emaildetestmoodmap@gmail.com", "password":"tresbeaumotdepasse"}
+
+Données attendues en sortie : 	{"erreur":false,"content-type": "User","content": "{"id":unEntier,"username":"testUsername"}"}
+
+Données reçues en sortie : 		{"erreur":false,"content-type": "User","content": "{"id":"13","username":"testUsername"}"}
+
+Mouvement(s) de la BDD :		- Insertion d'un enregistrement dans la table user avec les données en entrées incluses (mot de passe hashé par MD5),
+								l'attribut "activated" à 0 et un challenge aléatoire
+								
+Autre(s) attente(s) :			- Envoi d'un mail à l'adresse stipulée permettant la validation du compte (passage d'activated à 1 une fois que le lien est cliqué et le challenge vérifié)
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un utilisateur
+URL : 192.168.12.25:8000/createUser
+Cas : Les 3 champs attendus en entrée avec des valeurs déjà en base.
+
+Données en entrée : 			{"name":"testUsername", "email":"emaildetestmoodmap@gmail.com", "password":"tresbeaumotdepasse"}
+
+Données attendues en sortie : 	{"erreur":true,"message":"User already exists for this username: testUsername"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"User already exists for this username: testUsername"}
+
+Mouvement(s) de la BDD :		- Aucun
+								
+Autre(s) attente(s) :			- Aucune
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un utilisateur
+URL : 192.168.12.25:8000/createUser
+Cas : Les 3 champs attendus en entrée avec des valeurs déjà en base.
+
+Données en entrée : 			{"name":"testUsername", "email":"emaildetestmoodmap@gmail.com", "password":"tresbeaumotdepasse"}
+
+Données attendues en sortie : 	{"erreur":true,"message":"User already exists for this username: testUsername"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"User already exists for this username: testUsername"}
+
+Mouvement(s) de la BDD :		- Aucun
+								
+Autre(s) attente(s) :			- Aucune
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un utilisateur
+URL : 192.168.12.25:8000/createUser
+Cas : Les 3 champs attendus en entrée avec un username inexistant dans la base mais une adresse mail déjà en base.
+
+Données en entrée : 			{"name":"unAutreTest", "email":"emaildetestmoodmap@gmail.com", "password":"tresbeaumotdepasse"}
+
+Données attendues en sortie : 	{"erreur":true,"message":"User already exists for this email: emaildetestmoodmap@gmail.com"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"User already exists for this email: emaildetestmoodmap@gmail.com"}
+
+Mouvement(s) de la BDD :		- Aucun
+								
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : Activation du compte de l'utilisateur (par challenge-mail)
+URL : 192.168.12.25:8000/confirmUser?username=testUsername&challenge=bbd4d52a0172ff192d74310d6716c442 (par exemple)
+	  Cette méthode est appelée en cliquant sur le mail envoyé après la création de l'utilisateur
+Cas : Clic sur le mail reçu
+
+Données en entrée : 			username=testUsername&challenge=bbd4d52a0172ff192d74310d6716c442
+
+Données attendues en sortie : 	Aucune
+
+Données reçues en sortie : 		Aucune
+
+Mouvement(s) de la BDD :		- Update du user dont le username est en paramètre : mise à 1 de l'attribut "activated" (car challenge en base = challenge en paramètre)
+					
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : connexion d'un utilisateur
+URL : 192.168.12.25:8000/connectUser
+Cas : Absence de données en entrée
+
+
+Données en entrée : 			{}
+
+Données attendues en sortie : 	{"erreur":true, "message":"Data required: username"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : username"}
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : connexion d'un utilisateur
+URL : 192.168.12.25:8000/connectUser
+Cas : Uniquement le champ "name" présent en entrée
+
+
+Données en entrée : 			{"name":"test"}
+
+Données attendues en sortie : 	{"erreur":true, "message":"Data required: password"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : password"}
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : connexion d'un utilisateur
+URL : 192.168.12.25:8000/connectUser
+Cas : Toutes les données en entrée ("name" et "password") mais avec un user inexistant
+
+
+Données en entrée : 			{"name":"userInexistant", "password":"MDP"}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Specified user does not exist"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Specified user does not exist"}
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+Méthode : connexion d'un utilisateur
+URL : 192.168.12.25:8000/connectUser
+Cas : Toutes les données en entrée ("name" et "password") mais avec un mauvais mot de passe
+
+
+Données en entrée : 			{"name":"tes", "password":"mauvaisMDP"}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Incorrect password"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Incorrect password"}
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+Méthode : connexion d'un utilisateur
+URL : 192.168.12.25:8000/connectUser
+Cas : Toutes les données en entrée ("name" et "password") correctes mais pour un compte non activé par email
+
+
+Données en entrée : 			{"name":"nePasActiver", "password":"tresbeaumotdepasse"}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Please activate your account first"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Please activate your account first"}
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Vote Controller
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Absence de données en entrée
+
+Données en entrée : 			{}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Data required : userId"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : userId"}
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Seulement la donnée "idUser" en entrée
+
+Données en entrée : 			{"userId":4}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Data required : coordinates x & y"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : coordinates x & y"}
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Seulement les données "idUser", "x" et "y" en entrée
+
+Données en entrée : 			{"userId":4, "x":15.58, "y":56.17}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Data required : idCriteria"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : idCriteria"}
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Seulement les données "idUser", "x", "y" et "idCriteria" en entrée
+
+Données en entrée : 			{"userId":4, "x":15.58, "y":56.17, "idCriteria":1}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Data required : score"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : score"}
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Toutes les données en entrée : "idUser", "x", "y" et "idCriteria" et score mais avec un score faux
+
+Données en entrée : 			{"userId":4, "x":15.58, "y":56.17, "idCriteria":1}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Data out of bounds : score"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data out of bounds : score"}
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Toutes les données correctes en entrée.
+
+Données en entrée : 			{"userId":4, "x":15.58, "y":56.17, "idCriteria":1, "score":3}
+
+Données attendues en sortie : 	{"erreur":false,"content-type":"Vote","content":"{"id":101,"idUser":4,"idCriteria":1,"idDatazone":38,"score":3}"}
+
+Données reçues en sortie : 		{"erreur":false,"content-type":"Vote","content":"{"id":101,"idUser":4,"idCriteria":1,"idDatazone":38,"score":3}"}
+
+Mouvement(s) de la BDD :		- Création de la zone (représentée par les coordonnées en entrée) dans la base si elle n'existe pas
+								- Création de la datazone liée à la nouvelle zone et au critère stipulé en paramètres (si elle n'existe pas)
+								- Création du vote avec les données en entrée et lié à la zone et à la datazone créée
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Toutes les données correctes en entrée et similaires à un vote existant en base sauf le score qui est différent.
+
+Données en entrée : 			{"userId":4, "x":15.58, "y":56.17, "idCriteria":1, "score":4}
+
+Données attendues en sortie : 	{"erreur":false,"content-type":"Vote","content":"{"id":101,"idUser":4,"idCriteria":1,"idDatazone":38,"score":4}"}
+
+Données reçues en sortie : 		{"erreur":false,"content-type":"Vote","content":"{"id":101,"idUser":4,"idCriteria":1,"idDatazone":38,"score":4}"}
+
+Mouvement(s) de la BDD :		- Mise à jour du vote précédent (score 3 -> 4)*
+								- Mise à jour du score de la datazone (moyenne des scores de la zone : ici 3 -> 4) 
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Toutes les données en entrée mais avec un userId inexistant en base
+
+Données en entrée : 			{"userId":0, "x":15.58, "y":56.17, "idCriteria":1, "score":4}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Specified user does not exist"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Specified user does not exist"}
+
+Mouvement(s) de la BDD :		- Aucun
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Toutes les données en entrée mais avec un idCriteria inexistant en base
+
+Données en entrée : 			{"userId":4, "x":15.58, "y":56.17, "idCriteria":25, "score":4}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Specified criteria does not exist"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Specified criteria does not exist"}
+
+Mouvement(s) de la BDD :		- Aucun
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : création d'un vote
+URL : 192.168.12.25:8000/createVote
+Cas : Toutes les données correctes en entrée et similaire à un vote existant en base même le score.
+
+Données en entrée : 			{"userId":4, "x":15.58, "y":56.17, "idCriteria":1, "score":4}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Vote already exists"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Vote already exists"}
+
+Mouvement(s) de la BDD :		- Aucun
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : Récupération de tous les votes d'un utilisateur
+URL : 192.168.12.25:8000/getAllVotesFromUser
+Cas : Absence de données en entrée
+
+Données en entrée : 			{}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Data required : userId"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Data required : userId"}
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : Récupération de tous les votes d'un utilisateur
+URL : 192.168.12.25:8000/getAllVotesFromUser
+Cas : Toutes les données en entrée mais un userId inexistant
+
+Données en entrée : 			{"userId":0}
+
+Données attendues en sortie : 	{"erreur":true,"message":"Specified user does not exist"}
+
+Données reçues en sortie : 		{"erreur":true,"message":"Specified user does not exist"}
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : Récupération de tous les votes d'un utilisateur
+URL : 192.168.12.25:8000/getAllVotesFromUser
+Cas : Toutes les données correctes en entrée
+
+Données en entrée : 			{"userId":4}
+
+Données attendues en sortie : 	{"erreur":false,"content-type": "Liste de Vote","content":[liste des votes de l'utilisateur 4]}
+
+Données reçues en sortie : 		{"erreur":false,"content-type": "Liste de Vote","content":[{"ID":112,"ID_CRITERE":1,"NAME":"verdure","SCORE":4,"LONGITUDE":15.58,"LATITUDE":56.17},
+								{"ID":113,"ID_CRITERE":1,"NAME":"verdure","SCORE":3,"LONGITUDE":15.58,"LATITUDE":25},
+								{"ID":114,"ID_CRITERE":1,"NAME":"verdure","SCORE":2,"LONGITUDE":10,"LATITUDE":15}]}
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Datazone Controller
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Méthode : Récupération de la liste des zones et de leurs moyennes respectives
+URL : 192.168.12.25:8000/getInfoZones
+Cas : Appel unique
+
+Données en entrée : 			{}
+
+Données attendues en sortie : 	{"erreur":false, "content-type":"List of Datazone", "content":[liste des moyennes et coordonnées des zones]}
+
+Données reçues en sortie : 		{"erreur":false, "content-type":"List of Datazone", "content":[{"x":-0.34720000624657,"y":49.181098937988,"score":1,"idCriteria":1},
+								{"x":-0.34720000624657,"y":49.181098937988,"score":2,"idCriteria":2}]
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
