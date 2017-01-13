@@ -83,7 +83,7 @@ class UserController extends Controller
 </head>
 <body>
 <b>Merci de cliquer sur le lien suivant pour activer votre compte :</b></br>
-<a href="http://192.168.12.25:8000/confirmUser?username='.$username.'&challenge='.$randomChallenge.'">Ici</a>
+<a href="http://192.168.12.25:8000/confirmUser?username='.$inputData['name'].'&challenge='.$randomChallenge.'">Ici</a>
 </body>
 </html> <html><body></body></html>','text/html'); 
         	//envoi du message
