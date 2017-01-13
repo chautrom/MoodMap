@@ -17,6 +17,7 @@ Nous avons utiliser les paquets de la distribution debian pour faciliter la main
 
 Néanmoins, pour la 5ème technologie "Symfony", il n'y avait pas de paquet Debian pour l'installer.
 Nous avons alors installer Composer sur le site officiel https://getcomposer.org/download/ afin de pouvoir gérer les dépendances de Symfony.
+
 Une fois cela fait, il suffit de cloner le projet avec git à la racine du serveur Apache2 /var/www/html/.
 
 Après que le projet soit créer il suffit de lancer le serveur Apache2 ainsi que Symfony.
