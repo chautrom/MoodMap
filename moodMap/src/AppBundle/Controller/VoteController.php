@@ -58,7 +58,7 @@ class VoteController extends Controller
 			return VoteController::generateErrorResponse($NO_SCORE_MESSAGE);
 		}
 		else{
-			if(!is_numeric($inputData['score'])	 or $inputData['score'] < 0 or $inputData['score'] > 5){
+			if(!is_numeric($inputData['score'])	 or $inputData['score'] < 0 or $inputData['score'] > 4){
 				return VoteController::generateErrorResponse($WRONG_DATA_SCORE);
 			}
 		}
