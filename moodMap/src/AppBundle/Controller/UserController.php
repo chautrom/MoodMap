@@ -29,14 +29,12 @@ class UserController extends Controller
 		//Récupération des données de la requête HTTP
 		$inputData = json_decode($this->get("request")->getContent(), true);
 
-		$email = $inputData['email'];
-		$username = $inputData['name'];
 		
 		//Contrôle des données en entrée
 		if(!isset($inputData['name'])){
 			return UserController::generateErrorResponse($NO_USERNAME_ERROR_MESSAGE);
 		}
-		if(!isset($email)){
+		if(!isset($inputData['email'])){
 			return UserController::generateErrorResponse($NO_EMAIL_MESSAGE);
 		}
 		if(!isset($inputData['password'])){
@@ -53,7 +51,7 @@ class UserController extends Controller
 		}
 		
 		//Non existence de l'utilisateur par email
-		$user = $userRepository->findOneBy(array('email' => $email));
+		$user = $userRepository->findOneBy(array('email' => $inputData['email']));
 		if ($user) {
 			return UserController::generateErrorResponse($USER_ALREADY_EXISTS_EMAIL . ': '. $inputData['email']);
 			//return UserController::generateErrorResponse($USER_ALREADY_EXISTS_EMAIL . ': ' . $email);
@@ -85,7 +83,7 @@ class UserController extends Controller
 </head>
 <body>
 <b>Merci de cliquer sur le lien suivant pour activer votre compte :</b></br>
-<a href="http://192.168.12.25:8000/confirmUser?username='.$username.'&challenge='.$randomChallenge.'">Ici</a>
+<a href="http://192.168.12.25:8000/confirmUser?username='.$inputData['name'].'&challenge='.$randomChallenge.'">Ici</a>
 </body>
 </html> <html><body></body></html>','text/html'); 
         	//envoi du message
@@ -138,6 +136,7 @@ class UserController extends Controller
 	$NO_PASSWORD_MESSAGE 			= 'Data required : password';
 	$INCORRECT_PASSWORD				= 'Incorrect password';
 	$USER_DOESNT_EXIST_MESSAGE		= 'Specified user does not exist';
+	$ACCOUNT_NOT_ACTIVE_MESSAGE		= 'Please activate your account first';
 
 	//Contrôle des données en entrée
 	if(!isset($inputData['name'])){
@@ -154,8 +153,7 @@ class UserController extends Controller
 	}
         if( !$user->getActivated() )
 	{
-		$jsonResponseMessage =  '{"status": "failure", "message":"Please activate your account first"}';
-		return new Response($jsonResponseMessage);
+		return UserController::generateErrorResponse($ACCOUNT_NOT_ACTIVE_MESSAGE);
 	}
 	
 	$HashPassword =  md5($inputData['password']);
