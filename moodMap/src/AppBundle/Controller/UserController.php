@@ -29,14 +29,12 @@ class UserController extends Controller
 		//Récupération des données de la requête HTTP
 		$inputData = json_decode($this->get("request")->getContent(), true);
 
-		$email = $inputData['email'];
-		$username = $inputData['name'];
 		
 		//Contrôle des données en entrée
 		if(!isset($inputData['name'])){
 			return UserController::generateErrorResponse($NO_USERNAME_ERROR_MESSAGE);
 		}
-		if(!isset($email)){
+		if(!isset($inputData['email'])){
 			return UserController::generateErrorResponse($NO_EMAIL_MESSAGE);
 		}
 		if(!isset($inputData['password'])){
