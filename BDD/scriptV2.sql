@@ -19,6 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `moodmapdb`
 --
+DROP SCHEMA IF EXISTS `moodmapDB` ;
+CREATE SCHEMA IF NOT EXISTS `moodmapDB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `moodmapDB` ;
 
 -- --------------------------------------------------------
 
@@ -26,7 +29,9 @@ SET time_zone = "+00:00";
 -- Structure de la table `criteria`
 --
 
-CREATE TABLE IF NOT EXISTS `criteria` (
+DROP TABLE IF EXISTS `moodmapDB`.`criteria` ;
+
+CREATE TABLE IF NOT EXISTS `moodmapDB`.`criteria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `iconpath` varchar(45) NOT NULL,
@@ -39,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `criteria` (
 -- Contenu de la table `criteria`
 --
 
-INSERT INTO `criteria` (`id`, `name`, `iconpath`) VALUES
+INSERT INTO `moodmapDB`.`criteria` (`id`, `name`, `iconpath`) VALUES
 (1, 'verdure', '/icons/verdure.png'),
 (2, 'bruit', '/icons/bruit.png');
 
@@ -49,7 +54,9 @@ INSERT INTO `criteria` (`id`, `name`, `iconpath`) VALUES
 -- Structure de la table `datazone`
 --
 
-CREATE TABLE IF NOT EXISTS `datazone` (
+DROP TABLE IF EXISTS `moodmapDB`.`datazone` ;
+
+CREATE TABLE IF NOT EXISTS `moodmapDB`.`datazone` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `score` float NOT NULL,
   `id_zone` int(11) NOT NULL,
@@ -63,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `datazone` (
 -- Contenu de la table `datazone`
 --
 
-INSERT INTO `datazone` (`id`, `score`, `id_zone`, `id_criteria`) VALUES
+INSERT INTO `moodmapDB`.`datazone` (`id`, `score`, `id_zone`, `id_criteria`) VALUES
 (1, 1, 1, 1),
 (2, 0, 2, 1),
 (3, 1, 3, 1),
@@ -103,7 +110,9 @@ INSERT INTO `datazone` (`id`, `score`, `id_zone`, `id_criteria`) VALUES
 -- Structure de la table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+DROP TABLE IF EXISTS `moodmapDB`.`user` ;
+
+CREATE TABLE IF NOT EXISTS `moodmapDB`.`user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(16) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -119,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `activated`, `challenge`) VALUES
+INSERT INTO `moodmapDB`.`user` (`id`, `username`, `email`, `password`, `activated`, `challenge`) VALUES
 (1, 'elhafiani', 'elhafiani@ensicaen.fr', 'A59DFE0E288E1208A0FFF3C', 0, 'AB123EF'),
 (2, 'poupi', 'pierre.poupard@ecole.ensicaen.fr', '66bf09db124762712dbd2b39bdff5da7', 1, 'AB12345ZA'),
 (3, 'moodmap', 'moodmap@gmail.com', '4337d088fa103f6bd4c866cb69e8f3c5', 1, 'MOODMAP2017');
@@ -130,7 +139,9 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `activated`, `challen
 -- Structure de la table `vote`
 --
 
-CREATE TABLE IF NOT EXISTS `vote` (
+DROP TABLE IF EXISTS `moodmapDB`.`vote` ;
+
+CREATE TABLE IF NOT EXISTS `moodmapDB`.`vote` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `id_criteria` int(11) NOT NULL,
@@ -146,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `vote` (
 -- Contenu de la table `vote`
 --
 
-INSERT INTO `vote` (`id`, `id_user`, `id_criteria`, `id_datazone`, `score`) VALUES
+INSERT INTO `moodmapDB`.`vote` (`id`, `id_user`, `id_criteria`, `id_datazone`, `score`) VALUES
 (1, 1, 1, 1, 2),
 (2, 1, 1, 2, 1),
 (3, 1, 1, 3, 2),
@@ -250,7 +261,9 @@ INSERT INTO `vote` (`id`, `id_user`, `id_criteria`, `id_datazone`, `score`) VALU
 -- Structure de la table `zone`
 --
 
-CREATE TABLE IF NOT EXISTS `zone` (
+DROP TABLE IF EXISTS `moodmapDB`.`zone` ;
+
+CREATE TABLE IF NOT EXISTS `moodmapDB`.`zone` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   `x` float NOT NULL,
@@ -263,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `zone` (
 -- Contenu de la table `zone`
 --
 
-INSERT INTO `zone` (`id`, `name`, `x`, `y`, `r`) VALUES
+INSERT INTO `moodmapDB`.`zone` (`id`, `name`, `x`, `y`, `r`) VALUES
 (1, 'Le Cargo Caen', -0.3472, 49.1811, 1),
 (2, 'CHU Caen', -0.3576, 49.205, 1),
 (3, 'ENSICaen Site B', -0.3582, 49.2092, 1),
@@ -288,14 +301,14 @@ INSERT INTO `zone` (`id`, `name`, `x`, `y`, `r`) VALUES
 --
 -- Contraintes pour la table `datazone`
 --
-ALTER TABLE `datazone`
+ALTER TABLE `moodmapDB`.`datazone`
   ADD CONSTRAINT `id_z` FOREIGN KEY (`id_zone`) REFERENCES `zone` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `id_im` FOREIGN KEY (`id_criteria`) REFERENCES `criteria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `vote`
 --
-ALTER TABLE `vote`
+ALTER TABLE `moodmapDB`.`vote`
   ADD CONSTRAINT `id_u` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `id_i` FOREIGN KEY (`id_criteria`) REFERENCES `criteria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `id_d` FOREIGN KEY (`id_datazone`) REFERENCES `datazone` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
