@@ -31,15 +31,14 @@ class VoteController extends Controller
 		$zoneRepository		= $entityManager->getRepository('AppBundle:Zone');
 		
         //Messages d'erreur
-		$NO_USERID_ERROR_MESSAGE 		= '"Data required : userId"';
-		$NO_COORDINATES_MESSAGE 		= '"Data required : coordinates x & y"';
-		$NO_CRITERA_MESSAGE				= '"Data required : idCriteria"';
-		$WRONG_DATA_SCORE				= '"Data out of bounds : score"';
-		$INEXISTANT_USER_MESSAGE		= '"Specified user does not exist"';
-		$INEXISTANT_CRITERIA_MESSAGE	= '"Specified criteria does not exist"';
-		$INEXISTANT_ZONE_MESSAGE 		= '"Specified zone does not exist"';
-		$INEXISTANT_DATAZONE_MESSAGE 	= '"Specified datazone does not exist"';
-		$DUPPLICATE_VOTE_MESSAGE		= '"Vote already exists"';
+		$NO_USERID_ERROR_MESSAGE 		= 'Data required : userId';
+		$NO_COORDINATES_MESSAGE 		= 'Data required : coordinates x & y';
+		$NO_CRITERA_MESSAGE				= 'Data required : idCriteria';
+		$NO_SCORE_MESSAGE				= 'Data required : score';
+		$WRONG_DATA_SCORE				= 'Data out of bounds : score';
+		$INEXISTANT_USER_MESSAGE		= 'Specified user does not exist';
+		$INEXISTANT_CRITERIA_MESSAGE	= 'Specified criteria does not exist';
+		$DUPPLICATE_VOTE_MESSAGE		= 'Vote already exists';
 		
 		//Récupération des données de la requête HTTP
 		$inputData = json_decode($this->get("request")->getContent(), true);		
@@ -57,7 +56,7 @@ class VoteController extends Controller
 			return VoteController::generateErrorResponse($NO_SCORE_MESSAGE);
 		}
 		else{
-			if(!is_numeric($inputData['score'])	 or $inputData['score'] < 0 or $inputData['score'] > 5){
+			if(!is_numeric($inputData['score'])	 or $inputData['score'] < 0 or $inputData['score'] > 4){
 				return VoteController::generateErrorResponse($WRONG_DATA_SCORE);
 			}
 		}
