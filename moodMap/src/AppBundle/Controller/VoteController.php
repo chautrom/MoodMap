@@ -34,6 +34,7 @@ class VoteController extends Controller
 		$NO_USERID_ERROR_MESSAGE 		= 'Data required : userId';
 		$NO_COORDINATES_MESSAGE 		= 'Data required : coordinates x & y';
 		$NO_CRITERA_MESSAGE				= 'Data required : idCriteria';
+		$NO_SCORE_MESSAGE				= 'Data required : score';
 		$WRONG_DATA_SCORE				= 'Data out of bounds : score';
 		$INEXISTANT_USER_MESSAGE		= 'Specified user does not exist';
 		$INEXISTANT_CRITERIA_MESSAGE	= 'Specified criteria does not exist';
