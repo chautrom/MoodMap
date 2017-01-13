@@ -1,6 +1,7 @@
 package com.example.mapaide.moodmap;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -14,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -56,6 +58,7 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
     IMapController mapController;
     private GetInfoZoneTask infoZoneTask = null;
     TabCouleurs colors;
+    public Position posToDisplay;
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,11 +67,11 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
 
         map = (MapView) findViewById(R.id.map);
-        //map.setTileSource(TileSourceFactory.MAPNIK);
-        map.setBuiltInZoomControls(true);
+        map.setTileSource(TileSourceFactory.MAPNIK);
+        //map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);
 
-        GeoPoint startPoint = new GeoPoint(49.1817, -0.3470);
+        //GeoPoint startPoint = new GeoPoint(49.1817, -0.3470);
 
         mapController = map.getController();
         mapController.setZoom(20);
@@ -93,7 +96,8 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         startMarker.setDraggable(true);
         map.getOverlays().add(startMarker);
-		
+
+
 
 
         /*
@@ -183,23 +187,17 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         protected String doInBackground(String... urls) {
             // TODO: attempt authentication against a network service.
 
-
             String infoZones = null;
             try {
                 infoZones = GET(urls[0]);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
             return infoZones;
-
-
         }
 
 
         // TODO: register the new account here.
-
 
         @Override
         protected void onPostExecute(String infoZones) {
@@ -265,9 +263,23 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
         Polygon overlay = new Polygon(this);
         overlay.setFillColor(color);
         overlay.setStrokeColor(color);
-        overlay.setStrokeWidth(rayon);
+        overlay.setStrokeWidth(0);
         overlay.setPoints(Polygon.pointsAsCircle(position, rayon));
         map.getOverlays().add(overlay);
         map.invalidate();
     }
+
+    public void launchEvaluation(View v){
+        Intent i = new Intent(TestMapActivity.this, EvaluationActivity.class);
+        i.putExtra("position", currentLocation.getLatitude() + ", " + currentLocation.getLongitude());
+        startActivity(i);
+    }
+
+    public void zooomIn(View v){
+        mapController.zoomIn();
+    }
+    public void zooomOut(View v){
+        mapController.zoomOut();
+    }
+
 }

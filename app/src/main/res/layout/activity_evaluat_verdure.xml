@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.mapaide.moodmap.EvaluationActivity"
+    android:orientation="vertical"
+    android:background="@mipmap/background_bas">
+
+    <TextView
+        android:id="@+id/adTextView"
+        android:paddingTop="20dp"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="Verdure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"
+        android:src="@drawable/epingle_verdure"
+        android:layout_width="170dp"
+        android:layout_height="170dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/face1"
+            android:src="@drawable/face_1"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+        <ImageView
+            android:id="@+id/face2"
+            android:src="@drawable/face_2"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+        <ImageView
+            android:id="@+id/face3"
+            android:src="@drawable/face_3"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+        <ImageView
+            android:id="@+id/face4"
+            android:src="@drawable/face_4"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+        <ImageView
+            android:id="@+id/face5"
+            android:src="@drawable/face_5"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

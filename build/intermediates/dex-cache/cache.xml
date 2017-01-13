@@ -2,249 +2,249 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.0.0_66f658c7986ebb586fbcee56b73abccc94226b09\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.9.0_caf9caeeb4951c64ec94ce10da8506990aa98913\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="7da84426d876216ed4cdddd85e739be5ecabdd04">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.0.0_c591c29e573537b2d16aee7150c6ddc9aff03eb8\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="7a23185c9b1c100e7d1a32275017e4712e31c796">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.0.0_04722a3931289387189de1905d754eec486ce9d0\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_771f49bec3508dc601f03b634ad3dadbce3ac7bc\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_d072de8ad67a50d09b5596f0fd786838509ca5f4\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_06cb8dea10a43c86cc0545791da3a784a1a97ff8\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_985ca78d53bc1da6677f472256726592c1ecf80e\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4d2c9665944cfb72229cedf51beaceb9b906dc73\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_2eb68ba792659a71d1d564cc44254e12a6ae802a\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_208fc8035e7bf5f3e4a940ffd0d0f5e57a234496\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.github.MKergall\osmbonuspack\6.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="c078cb52450c74f37d5162f7b47517ca47585fec">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.MKergall-osmbonuspack-6.1_4006c1f07d276742e48034655a0bc0f635f8c5a0\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="ea4b54dcbfe5ac05efb0a314105f07258118d3a7">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.0.0_c3c3db3414a0e3e3f7935745f197360c5d159795\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_bfc79e78115c5d06120364f2d48ac560ab75cc46\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.4.1_36766849fe65f67b1a7bc7f5b15a90e0fe3dbb88\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\org.osmdroid\osmdroid-android\5.6.2\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="ffd121ed25770782c82e8743ea6662949ef46586">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\org.osmdroid-osmdroid-android-5.6.2_70312a50a56bfafe18ebdfea03a0e0f8669bb90d\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_081e5cefb6994a6092bf375188c6238805ef5fd1\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_710e20dc4621ff6c33e72825f535572929e56110\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="0dc8ab07eeceda5e99b305c8069765056b6e5c9d">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.0.0_09aea8d7e42619c41d7b62c22d163133dc4f02f3\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_42f9d80a0fbd2dd4c16a52a88bf5ada894936a8f\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_c8a2c49dc24adba5db23ad3a46e52150f147151c\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.0.0_ea484261075ff29b0a0eb0a0f6392bd13b032a76\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_aa822b64b196efa47f4d66f25a9dc64639216059\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_d62a69e76f808dfa7db26f8248f8e25e5610112f\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpcore\4.4.1\f5aa318bda4c6c8d688c9d00b90681dcd82ce636\httpcore-4.4.1.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="f5aa318bda4c6c8d688c9d00b90681dcd82ce636">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\httpcore-4.4.1_243ecbc8d8fb3ad82e3954731d48fb82b50a6c9a\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_84abc33fe03977a8f2f7029cce687ac46cd55818\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_81597fac911dac894d87ff3ca488d348540fcfb1\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="4ef8ab5fee042023018249474bc93bd4b2b9c17e">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.0.0_adc26bd74dda8b61e862c45cf5b6855eb0ab6672\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="c0ffee7dbe525d254361c4e3ac3ca393c7f0e0cc">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_5b127a11075e4a9b4d43a0c94c8c6629a0b9302f\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_8d3e37e1c86128553c4de784b9bcf28ee96d87c2\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        revision="24.0.2"
-        sha1="62e3b99b14c15b00233b48c5d4881f8adc54fc56">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_7a7b651ffc16a38da2f9ae4277181c43391a300f\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
         jumboMode="true"
         revision="24.0.2"
         sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_49542832ba446e601db77bb2ea808ff0bd44bc74\classes.dex" />
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_e63274d83830a34add6c05ac092a06fd8ca3e24a\classes.dex" />
     </item>
     <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.0.0\jars\classes.jar"
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         revision="24.0.2"
-        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.0.0_23fcb7f3ffd4278d4bcf3b0b38cdf291e4f1be28\classes.dex" />
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f61241481e52bb70b2a68f32f9b0508bae407b87\classes.dex" />
     </item>
     <item
-        jar="C:\Android Studio\gradle\m2repository\org\apache\commons\commons-lang3\3.3.2\commons-lang3-3.3.2.jar"
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.0.0\jars\classes.jar"
         jumboMode="true"
         revision="24.0.2"
-        sha1="90a3822c38ec8c996e84c16a3477ef632cbc87a3">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-lang3-3.3.2_58c49976e811260d4ae4c0d58e85ddee03688caa\classes.dex" />
+        sha1="7a23185c9b1c100e7d1a32275017e4712e31c796">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.0.0_8286dfb2d3220599b3572d939f59653019bdf2a8\classes.dex" />
     </item>
     <item
-        jar="C:\Users\Sara\MoodMap\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.0.0\jars\classes.jar"
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_f6118da4ca0d3765523ae027e3e38e908a23306b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.0.0\jars\classes.jar"
         jumboMode="true"
         revision="24.0.2"
         sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
-        <dex dex="C:\Users\Sara\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.0.0_aedc9b9cda652bfb6a17bb669ee693b62aa38e67\classes.dex" />
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.0.0_e6a7d18d745dd210dadf7f4308825625f186ca77\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_76d6a7eea358c44468c14f9731eb34f4e2169f53\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="7da84426d876216ed4cdddd85e739be5ecabdd04">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.0.0_44107acfa9d3d9ba6316beb22d5f56d6712652d0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_d6f9d9a6832c2c9ed80fc984a4ddf1eab1dcc6e2\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\org.osmdroid\osmdroid-android\5.6.2\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="ffd121ed25770782c82e8743ea6662949ef46586">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\org.osmdroid-osmdroid-android-5.6.2_ceb9f2e56077a0dd47968f928643572d009e6bcf\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="c81ba8a139a57d1b0f3cfae74b4fdbfd2b9d72c1">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_df2e5b9d88035e9386a5f2909d209a6a786985ca\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.0.0_4c8ae3a7eea4f4754c151783ba3626f64629e47f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_119f3b084c08122757fd814b164f36e1d861223c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_7d35209de9d4a109c531139efb7dc5c7a260f0da\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.github.MKergall\osmbonuspack\6.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="c078cb52450c74f37d5162f7b47517ca47585fec">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.MKergall-osmbonuspack-6.1_b79451ab6475fa67b50f2be17cd3851914c78624\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.0.0_3c439ee9cbc8e5346f1a2601ca613e104171dfc3\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="10f192ae5fc60a19eaffec00d2ccf2234a07006f">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c218171b6ef3f32c212d9715eae5b5e2b81a287f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.4.1_78e3e9a93877d361eb45bf975970562135427a16\classes.dex" />
+    </item>
+    <item
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\org\apache\commons\commons-lang3\3.3.2\commons-lang3-3.3.2.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="90a3822c38ec8c996e84c16a3477ef632cbc87a3">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-lang3-3.3.2_4314d5c387d123a62f2e97084dd070725c126438\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.0.0_503befe6460f19ff990a693aa1cb673638338b90\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_4de57d46bf5263cc737c3139d336950cfe162035\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpcore\4.4.1\f5aa318bda4c6c8d688c9d00b90681dcd82ce636\httpcore-4.4.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="f5aa318bda4c6c8d688c9d00b90681dcd82ce636">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\httpcore-4.4.1_6e1813b78caa06b3b171e6374b70fa2f9b091d29\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_32f84b328f0c5864c48240be924df2951db6c57b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_675817159192e6573b354eefca18567afc9a24fd\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_c4a0b912cf9468c7a68c92d9cc43d9cc9aeb0be1\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_d7e7bd05c97b21010b375fa40ef7323474b76b29\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="0dc8ab07eeceda5e99b305c8069765056b6e5c9d">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.0.0_14c15b25738fee10322c8703ef2cbd60237050a3\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ae3d18bf243881aed6059bf85756c2614af290c7\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_4f4fb29dc553a4ca5eac9bc0bf9f79b77ec87a20\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_8a81e99f53dcf5d2dbb5175aa0f76b1416185d2e\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_8ba56a8d163755cb546776fe621e9551cb7da9f3\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="4ef8ab5fee042023018249474bc93bd4b2b9c17e">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.0.0_0c2393f95c2058807fe670b9b27ce46e08bf8e12\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_9ac950668a66d4a65df86448a5fcfef225188ab2\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_49f90375dd2f4fae5f2b310f991b5479d838d108\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="ea4b54dcbfe5ac05efb0a314105f07258118d3a7">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.0.0_86f2cc05c29b0562c792d838058ac11d9d02f7fa\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Marouane\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="C:\Users\Marouane\Desktop\intensif\MoodMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.9.0_83fc153bb06df70a63f7414294a87c79685d9148\classes.dex" />
     </item>
 
 </items>

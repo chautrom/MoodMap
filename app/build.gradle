@@ -4,7 +4,6 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
-    useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
         applicationId "com.example.mapaide.moodmap"
@@ -29,6 +28,4 @@ dependencies {
     compile 'org.osmdroid:osmdroid-android:5.6.2'
     compile 'com.github.MKergall:osmbonuspack:6.1'
     compile 'com.google.android.gms:play-services-auth:9.0.0'
-    compile 'org.apache.httpcomponents:httpcore:4.4.1'
-    compile 'org.apache.httpcomponents:httpclient:4.5'
 }
