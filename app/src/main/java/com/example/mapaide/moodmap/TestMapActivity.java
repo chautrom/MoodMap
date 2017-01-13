@@ -59,6 +59,7 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
     private GetInfoZoneTask infoZoneTask = null;
     TabCouleurs colors;
     public Position posToDisplay;
+    int centrage = 0;
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,11 +94,11 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
 
         startMarker = new Marker(map);
         //startMarker.setPosition(startPoint);
+        Drawable icone = getResources().getDrawable(R.drawable.smiley_pico);
+        startMarker.setIcon(icone);
         startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         startMarker.setDraggable(true);
         map.getOverlays().add(startMarker);
-
-
 
 
         /*
@@ -241,7 +242,9 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
     public void onLocationChanged(Location location) {
         currentLocation = new GeoPoint(location);
         startMarker.setPosition(currentLocation);
-        //mapController.setCenter(currentLocation);
+        if(centrage == 0)
+            mapController.setCenter(currentLocation);
+        centrage++;
     }
 
     @Override
@@ -281,6 +284,10 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
     }
     public void zooomOut(View v){
         mapController.zoomOut();
+    }
+    public void refreshMap(View v){
+        mapController.animateTo(currentLocation);
+        map.invalidate();
     }
 
 }
