@@ -266,9 +266,9 @@ DROP TABLE IF EXISTS `moodmapDB`.`zone` ;
 CREATE TABLE IF NOT EXISTS `moodmapDB`.`zone` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `x` float NOT NULL,
-  `y` float NOT NULL,
-  `r` float NOT NULL,
+  `x` double NOT NULL,
+  `y` double NOT NULL,
+  `r` double NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
