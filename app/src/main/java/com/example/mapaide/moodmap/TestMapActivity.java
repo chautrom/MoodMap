@@ -241,7 +241,7 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
     public void onLocationChanged(Location location) {
         currentLocation = new GeoPoint(location);
         startMarker.setPosition(currentLocation);
-        mapController.setCenter(currentLocation);
+        //mapController.setCenter(currentLocation);
     }
 
     @Override
@@ -271,7 +271,8 @@ public class TestMapActivity extends AppCompatActivity implements LocationListen
 
     public void launchEvaluation(View v){
         Intent i = new Intent(TestMapActivity.this, EvaluationActivity.class);
-        i.putExtra("position", currentLocation.getLatitude() + ", " + currentLocation.getLongitude());
+        i.putExtra("latitude", currentLocation.getLatitude());
+        i.putExtra("longitude", currentLocation.getLongitude());
         startActivity(i);
     }
 

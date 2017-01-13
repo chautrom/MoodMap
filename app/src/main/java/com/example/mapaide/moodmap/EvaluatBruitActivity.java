@@ -24,6 +24,7 @@ import java.net.URL;
 public class EvaluatBruitActivity extends AppCompatActivity implements View.OnClickListener{
 
     private evaluationTask evalTask = null;
+    double _latitude, _longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,10 @@ public class EvaluatBruitActivity extends AppCompatActivity implements View.OnCl
         fc4.setOnClickListener(this);
         fc5.setOnClickListener(this);
 
+        Intent i = getIntent();
+        _latitude = i.getDoubleExtra("latitude", 0);
+        _longitude = i.getDoubleExtra("longitude", 0);
+
     }
 
     @Override
@@ -49,25 +54,27 @@ public class EvaluatBruitActivity extends AppCompatActivity implements View.OnCl
         int score = 0;
         switch (v.getId()){
             case R.id.face1b:
-                score = 1;
+                score = 0;
                 break;
             case R.id.face2b:
-                score = 2;
+                score = 1;
                 break;
             case R.id.face3b:
-                score = 3;
+                score = 2;
                 break;
             case R.id.face4b:
-                score = 4;
+                score = 3;
                 break;
             case R.id.face5b:
-                score = 5;
+                score = 4;
                 break;
         }
 
         Evaluation ev = new Evaluation();
-        ev.setCritere(1);
+        ev.setCritere(2);
         ev.setScore(score);
+        ev.setLatitude(_latitude);
+        ev.setLongitude(_longitude);
         evalTask = new evaluationTask(ev);
         evalTask.execute(getString(R.string.url));
     }
@@ -88,10 +95,10 @@ public class EvaluatBruitActivity extends AppCompatActivity implements View.OnCl
 
 
             JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("userId",1);
-            jsonObject.accumulate("x",28.2331);
-            jsonObject.accumulate("y",19.4321);
-            jsonObject.accumulate("idCriteria",1);
+            jsonObject.accumulate("userId",6);
+            jsonObject.accumulate("y",eval.getLatitude());
+            jsonObject.accumulate("x",eval.getLongitude());
+            jsonObject.accumulate("idCriteria", eval.getCritere());
             jsonObject.accumulate("score", eval.getScore());
 
             con.setDoOutput(true);

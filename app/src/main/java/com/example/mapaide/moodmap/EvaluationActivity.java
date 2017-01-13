@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class EvaluationActivity extends AppCompatActivity implements View.OnClickListener{
 
+    double l1, l2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,8 +19,11 @@ public class EvaluationActivity extends AppCompatActivity implements View.OnClic
 
         Position pos = new Position();
         TextView addresse = (TextView) findViewById(R.id.adTextView);
+
         Intent i = getIntent();
-        addresse.setText(i.getStringExtra("position"));
+        l1 = i.getDoubleExtra("latitude", 0);
+        l2 = i.getDoubleExtra("longitude", 0);
+        addresse.setText(l1 + "," + l2);
 
         ImageView img1 = (ImageView) findViewById(R.id.evaluation1);
         img1.setOnClickListener(this);
@@ -32,10 +36,17 @@ public class EvaluationActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()){
             case R.id.evaluation1:
                 Intent i1 = new Intent(this, EvaluatVerdureActivity.class);
+                i1.putExtra("latitude", l1);
+                i1.putExtra("longitude", l2);
+
                 startActivityForResult(i1, 1);
                 break;
             case R.id.evaluation2:
                 Intent i2 = new Intent(this, EvaluatBruitActivity.class);
+
+                i2.putExtra("latitude", l1);
+                i2.putExtra("longitude", l2);
+
                 startActivityForResult(i2, 1);
                 break;
         }
