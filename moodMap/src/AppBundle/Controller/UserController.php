@@ -51,7 +51,7 @@ class UserController extends Controller
 		}
 		
 		//Non existence de l'utilisateur par email
-		$user = $userRepository->findOneBy(array('email' => $email));
+		$user = $userRepository->findOneBy(array('email' => $inputData['email']));
 		if ($user) {
 			return UserController::generateErrorResponse($USER_ALREADY_EXISTS_EMAIL . ': '. $inputData['email']);
 			//return UserController::generateErrorResponse($USER_ALREADY_EXISTS_EMAIL . ': ' . $email);
